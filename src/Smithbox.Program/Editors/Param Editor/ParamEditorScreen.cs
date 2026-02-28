@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.MapEditor;
@@ -131,7 +132,7 @@ public class ParamEditorScreen : EditorScreen
     {
         if (!Project.Descriptor.ImportedParamRowNames)
         {
-            var dialog = PlatformUtils.Instance.MessageBox("Do you wish to import row names?", "Automatic Row Naming", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Do you wish to import row names?"), LocalizationManager.Instance.Get("Automatic Row Naming"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (dialog is DialogResult.OK)
             {
                 RowNameHelper.ImportRowNames(Project, Project.Handler.ParamData.PrimaryBank, ParamRowNameImportType.Community);

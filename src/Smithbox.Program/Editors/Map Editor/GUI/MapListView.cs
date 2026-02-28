@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -58,11 +59,11 @@ public class MapListView : IActionEventHandler
     {
         if (ImGui.BeginMenuBar())
         {
-            if (ImGui.BeginMenu("Maps"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Maps")))
             {
-                if (ImGui.MenuItem("Unload Current"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Unload Current")))
                 {
-                    DialogResult result = PlatformUtils.Instance.MessageBox("Unload current?", "Confirm",
+                    DialogResult result = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Unload current?"), LocalizationManager.Instance.Get("Confirm"),
                                 MessageBoxButtons.YesNo);
 
                     if (result == DialogResult.Yes)
@@ -70,63 +71,63 @@ public class MapListView : IActionEventHandler
                         View.Universe.UnloadMap(View.Selection.SelectedMapID);
                     }
                 }
-                UIHelper.Tooltip("Unload the currently loaded and selected map.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Unload the currently loaded and selected map."));
 
-                if (ImGui.MenuItem("Unload All"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Unload All")))
                 {
-                    DialogResult result = PlatformUtils.Instance.MessageBox("Unload all maps?", "Confirm", MessageBoxButtons.YesNo);
+                    DialogResult result = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Unload all maps?"), LocalizationManager.Instance.Get("Confirm"), MessageBoxButtons.YesNo);
 
                     if (result == DialogResult.Yes)
                     {
                         View.Universe.UnloadAllMaps();
                     }
                 }
-                UIHelper.Tooltip("Unload all loaded maps.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Unload all loaded maps."));
 
                 ImGui.EndMenu();
             }
 
-            if (ImGui.BeginMenu("List Filters"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("List Filters")))
             {
-                if (ImGui.BeginMenu("Select"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Select")))
                 {
                     View.MapListFilterTool.SelectionMenu();
                     ImGui.EndMenu();
                 }
-                UIHelper.Tooltip("Select an existing list filter to apply to the map list.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Select an existing list filter to apply to the map list."));
 
-                if (ImGui.MenuItem("Clear"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Clear")))
                 {
                     View.MapListFilterTool.Clear();
                 }
-                UIHelper.Tooltip("Clear the current list filter, resetting the filtering of the map list.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Clear the current list filter, resetting the filtering of the map list."));
 
                 ImGui.Separator();
 
-                if (ImGui.BeginMenu("Create"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Create")))
                 {
                     View.MapListFilterTool.CreationMenu();
                     ImGui.EndMenu();
                 }
-                UIHelper.Tooltip("Create a new list filter. The filter terms support regular expressions.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Create a new list filter. The filter terms support regular expressions."));
 
-                if (ImGui.BeginMenu("Edit"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Edit")))
                 {
                     View.MapListFilterTool.EditMenu();
                     ImGui.EndMenu();
                 }
-                UIHelper.Tooltip("Edit an existing list filter.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Edit an existing list filter."));
 
-                if (ImGui.BeginMenu("Delete"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Delete")))
                 {
                     View.MapListFilterTool.DeleteMenu();
                     ImGui.EndMenu();
                 }
-                UIHelper.Tooltip("Delete an existing list filter.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Delete an existing list filter."));
 
                 ImGui.EndMenu();
             }
-            UIHelper.Tooltip("Select a list filter to narrow the map list down to a pre-defined set of maps.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Select a list filter to narrow the map list down to a pre-defined set of maps."));
 
             if (Project.Descriptor.ProjectType is ProjectType.ER or ProjectType.NR)
             {

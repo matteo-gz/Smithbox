@@ -1,7 +1,8 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
 using Octokit;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Editors.Common;
 using StudioCore.Logger;
 using StudioCore.Utilities;
@@ -61,7 +62,7 @@ public class ProjectOrchestrator : IDisposable
         else
         {
             ImGui.Begin("No Project##LoadingWindow", UIHelper.GetMainWindowFlags());
-            ImGui.Text("No project has been loaded.");
+            ImGui.Text(LocalizationManager.Instance.Get("No project has been loaded."));
             ImGui.End();
         }
 
@@ -90,7 +91,7 @@ public class ProjectOrchestrator : IDisposable
         }
 
         // Project Selection
-        if (ImGui.BeginMenu($"Available Projects"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Available Projects")))
         {
             DisplayProjectSelectionMenu();
 
@@ -99,26 +100,26 @@ public class ProjectOrchestrator : IDisposable
 
         ImGui.Separator();
 
-        if (ImGui.BeginMenu("Project Creation"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Project Creation")))
         {
-            if (ImGui.MenuItem("Create New Project"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Create New Project")))
             {
                 CreationMenu.IsEditMode = false;
                 CreationMenu.IsDisplayed = true;
             }
-            UIHelper.Tooltip($"Add a new project to the project list.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Add a new project to the project list."));
 
-            if (ImGui.MenuItem("Create Project from Project.JSON"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Create Project from Project.JSON")))
             {
                 var projectJsonPath = "";
-                var result = PlatformUtils.Instance.OpenFileDialog("Select Project JSON", out projectJsonPath);
+                var result = PlatformUtils.Instance.OpenFileDialog(LocalizationManager.Instance.Get("Select Project JSON"), out projectJsonPath);
 
                 if (result)
                 {
                     CreateProjectFromLegacyJson(projectJsonPath);
                 }
             }
-            UIHelper.Tooltip($"Create a new project from a project.json file.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Create a new project from a project.json file."));
 
             ImGui.EndMenu();
         }
@@ -147,7 +148,7 @@ public class ProjectOrchestrator : IDisposable
         // Project Selection
         var projectNameInput = ImGui.InputText("##projectFilterInput", ref ProjectListFilter, 255);
 
-        UIHelper.Tooltip("Filter the project list by this term.");
+        UIHelper.Tooltip(LocalizationManager.Instance.Get("Filter the project list by this term."));
 
         ImGui.BeginTabBar("##projectSelectionTabBar");
 
@@ -377,7 +378,7 @@ public class ProjectOrchestrator : IDisposable
 
             ImGui.Separator();
 
-            if (ImGui.Selectable("Copy GUID"))
+            if (ImGui.Selectable(LocalizationManager.Instance.Get("Copy GUID")))
             {
                 PlatformUtils.Instance.SetClipboardText($"{curProject.Descriptor.ProjectGUID}");
             }
@@ -389,7 +390,7 @@ public class ProjectOrchestrator : IDisposable
 
         if (!curProject.Initialized)
         {
-            if (ImGui.MenuItem("Load"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Load")))
             {
                 SelectedProject = curProject;
 
@@ -401,7 +402,7 @@ public class ProjectOrchestrator : IDisposable
         }
         else
         {
-            if (ImGui.MenuItem("Select"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Select")))
             {
                 SelectedProject = curProject;
                 Smithbox.Instance.SetProgramName(curProject);
@@ -412,7 +413,7 @@ public class ProjectOrchestrator : IDisposable
                 }
             }
 
-            if (ImGui.MenuItem($"Unload##unloadProject"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Unload") + "##unloadProject"))
             {
                 UnloadProject(curProject);
             }
@@ -542,7 +543,7 @@ public class ProjectOrchestrator : IDisposable
                 }
             }
 
-            var dialog = PlatformUtils.Instance.MessageBox($"You will delete the following files:\n{fileList}", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("You will delete the following files:") + "\n" + fileList, LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (dialog is DialogResult.OK)
             {

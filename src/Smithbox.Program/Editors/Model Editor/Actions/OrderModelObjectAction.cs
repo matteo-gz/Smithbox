@@ -1,4 +1,5 @@
-﻿using SoulsFormats;
+using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.MapEditor;
@@ -40,7 +41,7 @@ public class OrderModelObjectAction : ViewportAction
         // Will require more rigorous validation of the indices
         if (Selection.Count > 1)
         {
-            PlatformUtils.Instance.MessageBox("You can only order one map object at a time.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("You can only order one map object at a time."), "Smithbox", MessageBoxButtons.OK);
         }
         else
         {

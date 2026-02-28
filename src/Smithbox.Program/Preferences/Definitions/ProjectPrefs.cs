@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.TextEditor;
 using StudioCore.Utilities;
@@ -476,7 +477,7 @@ public class ProjectPrefs
                 {
                     if (ImGui.Button("Create Project Metadata##createProjectMetaData", DPI.StandardButtonSize))
                     {
-                        var dialog = PlatformUtils.Instance.MessageBox("This will overwrite any existing project-specific metadata. Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("This will overwrite any existing project-specific metadata. Are you sure?"), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                         if (dialog is DialogResult.Yes)
                         {

@@ -538,7 +538,7 @@ public class Smithbox
 
         if (ImGui.BeginMainMenuBar())
         {
-            if (ImGui.BeginMenu("Projects"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Projects")))
             {
                 Orchestrator.DisplayMenuOptions();
 
@@ -546,13 +546,13 @@ public class Smithbox
             }
 
             // Preferences
-            if (ImGui.MenuItem("Preferences"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Preferences")))
             {
                 PreferencesMenu.IsDisplayed = !PreferencesMenu.IsDisplayed;
             }
 
             // Keybinds
-            if (ImGui.MenuItem("Shortcuts"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Shortcuts")))
             {
                 KeybindsMenu.IsDisplayed = !KeybindsMenu.IsDisplayed;
             }
@@ -560,28 +560,28 @@ public class Smithbox
             // Help
             if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Help")))
             {
-                ImGui.Text("Developed by Vawser.");
+                ImGui.Text(LocalizationManager.Instance.Get("Developed by Vawser."));
                 ImGui.Text($"Smithbox Version: {_version}");
 
                 ImGui.Separator();
 
-                if (ImGui.MenuItem("Go to Wiki"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Go to Wiki")))
                 {
                     Process myProcess = new();
                     myProcess.StartInfo.UseShellExecute = true;
                     myProcess.StartInfo.FileName = "https://soulsmodding.com/doku.php?id=smithbox";
                     myProcess.Start();
                 }
-                UIHelper.Tooltip("Go to the Github repository page.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Go to the Github repository page."));
 
-                if (ImGui.MenuItem("Go to Github Repository"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Go to Github Repository")))
                 {
                     Process myProcess = new();
                     myProcess.StartInfo.UseShellExecute = true;
                     myProcess.StartInfo.FileName = "https://github.com/vawser/Smithbox";
                     myProcess.Start();
                 }
-                UIHelper.Tooltip("Go to the Github repository page.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("Go to the Github repository page."));
 
                 if (CFG.Current.Developer_Enable_Tools)
                 {
@@ -619,9 +619,9 @@ public class Smithbox
         {
             ImGui.Separator();
 
-            if (ImGui.BeginMenu("Update"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Update")))
             {
-                if (ImGui.MenuItem("Go to Release"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Go to Release")))
                 {
                     Process myProcess = new();
                     myProcess.StartInfo.UseShellExecute = true;

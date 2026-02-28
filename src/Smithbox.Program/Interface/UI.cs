@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
+using StudioCore;
 using StudioCore.Editors.Common;
 using StudioCore.Logger;
 using StudioCore.Utilities;
@@ -255,7 +256,7 @@ public class UI
 
         if (File.Exists(file))
         {
-            var result = PlatformUtils.Instance.MessageBox("Theme with this name already exists. Overwrite?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            var result = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Theme with this name already exists. Overwrite?"), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if(result  == DialogResult.OK)
             {
@@ -272,7 +273,7 @@ public class UI
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("Invalid filename.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Invalid filename."), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 

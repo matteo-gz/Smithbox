@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Keybinds;
 using StudioCore.Utilities;
@@ -76,15 +77,15 @@ public class PreferencesMenu
             {
                 ImGui.BeginMenuBar();
 
-                if (ImGui.BeginMenu("Options"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Options")))
                 {
-                    if (ImGui.MenuItem("Save"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Save")))
                     {
                         CFG.Save();
-                        Smithbox.Log(this, "Preferences saved.", LogLevel.Information);
+                        Smithbox.Log(this, LocalizationManager.Instance.Get("Preferences saved."), LogLevel.Information);
                     }
 
-                    if(ImGui.BeginMenu("Reset to Default"))
+                    if(ImGui.BeginMenu(LocalizationManager.Instance.Get("Reset to Default")))
                     {
                         DisplayRevertOptions();
 
@@ -101,7 +102,7 @@ public class PreferencesMenu
 
                 ImGui.BeginTabBar("settingsTabs");
 
-                if (ImGui.BeginTabItem("System"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("System")))
                 {
                     ImGui.BeginChild("systemPrefSection");
 
@@ -112,7 +113,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Project"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Project")))
                 {
                     ImGui.BeginChild("projectPrefSection");
 
@@ -123,7 +124,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Interface"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Interface")))
                 {
                     ImGui.BeginChild("interfacePrefSection");
 
@@ -134,7 +135,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Viewport"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Viewport")))
                 {
                     ImGui.BeginChild("viewportPrefSection");
 
@@ -145,7 +146,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Map Editor"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Map Editor")))
                 {
                     ImGui.BeginChild("mapEditorPrefSection");
 
@@ -156,7 +157,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Model Editor"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Model Editor")))
                 {
                     ImGui.BeginChild("modelEditorPrefSection");
 
@@ -167,7 +168,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Param Editor"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Param Editor")))
                 {
                     ImGui.BeginChild("paramEditorPrefSection");
 
@@ -178,7 +179,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Text Editor"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Text Editor")))
                 {
                     ImGui.BeginChild("textEditorPrefSection");
 
@@ -189,7 +190,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Graphics Param Editor"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Graphics Param Editor")))
                 {
                     ImGui.BeginChild("gparamEditorPrefSection");
 
@@ -200,7 +201,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Material Editor"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Material Editor")))
                 {
                     ImGui.BeginChild("materialEditorPrefSection");
 
@@ -211,7 +212,7 @@ public class PreferencesMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Texture Viewer"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Texture Viewer")))
                 {
                     ImGui.BeginChild("textureViewerPrefSection");
 
@@ -351,9 +352,9 @@ public class PreferencesMenu
 
     public void DisplayRevertOptions()
     {
-        if (ImGui.MenuItem("All"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("All")))
         {
-            var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dialog is DialogResult.Yes)
             {
@@ -363,11 +364,11 @@ public class PreferencesMenu
         UIHelper.Tooltip("Reverts all preferences to their default value.");
 
         // Add these to the user can revert these easily without reverting everything
-        if (ImGui.BeginMenu("Viewport"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Viewport")))
         {
-            if(ImGui.MenuItem("General"))
+            if(ImGui.MenuItem(LocalizationManager.Instance.Get("General")))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialog is DialogResult.Yes)
                 {
@@ -376,9 +377,9 @@ public class PreferencesMenu
             }
             UIHelper.Tooltip("Reverts all preferences in the Viewport General section to their default value.");
 
-            if (ImGui.MenuItem("Rendering"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Rendering")))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialog is DialogResult.Yes)
                 {
@@ -387,9 +388,9 @@ public class PreferencesMenu
             }
             UIHelper.Tooltip("Reverts all preferences in the Viewport Rendering section to their default value.");
 
-            if (ImGui.MenuItem("Model Rendering"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Model Rendering")))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialog is DialogResult.Yes)
                 {
@@ -398,9 +399,9 @@ public class PreferencesMenu
             }
             UIHelper.Tooltip("Reverts all preferences in the Viewport Model Rendering section to their default value.");
 
-            if (ImGui.MenuItem("Selection"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Selection")))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialog is DialogResult.Yes)
                 {
@@ -409,9 +410,9 @@ public class PreferencesMenu
             }
             UIHelper.Tooltip("Reverts all preferences in the Viewport Selection section to their default value.");
 
-            if (ImGui.MenuItem("Coloring"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Coloring")))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialog is DialogResult.Yes)
                 {
@@ -420,9 +421,9 @@ public class PreferencesMenu
             }
             UIHelper.Tooltip("Reverts all preferences in the Viewport Coloring section to their default value.");
 
-            if (ImGui.MenuItem("Display Preset"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Display Preset")))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialog is DialogResult.Yes)
                 {

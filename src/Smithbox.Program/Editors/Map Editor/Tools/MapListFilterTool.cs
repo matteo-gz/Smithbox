@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Logger;
 using StudioCore.Utilities;
@@ -86,7 +87,7 @@ public class MapListFilterTool
 
             if (ImGui.Selectable($"{entry.Name}##entry{curKey}", CurrentFilter == entry))
             {
-                var dialog = PlatformUtils.Instance.MessageBox("Are you sure you want to delete this filter?", "Warning", MessageBoxButtons.YesNo);
+                var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure you want to delete this filter?"), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.YesNo);
 
                 if (dialog is DialogResult.Yes)
                 {

@@ -1,6 +1,7 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Silk.NET.SDL;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -111,7 +112,7 @@ public class SelectCollisionRefAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No collision selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No collision selected."), "Smithbox", MessageBoxButtons.OK);
         }
 
         View.DelayPicking();
@@ -145,7 +146,7 @@ public class SelectCollisionRefAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No parts selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No parts selected."), "Smithbox", MessageBoxButtons.OK);
         }
 
         View.DelayPicking();

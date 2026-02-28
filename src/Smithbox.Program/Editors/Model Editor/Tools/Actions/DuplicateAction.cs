@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.MapEditor;
@@ -110,7 +111,7 @@ public class DuplicateAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No object selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No object selected."), "Smithbox", MessageBoxButtons.OK);
         }
     }
 }

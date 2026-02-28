@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -87,7 +88,7 @@ public class DeleteAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No object selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No object selected."), "Smithbox", MessageBoxButtons.OK);
         }
     }
 }

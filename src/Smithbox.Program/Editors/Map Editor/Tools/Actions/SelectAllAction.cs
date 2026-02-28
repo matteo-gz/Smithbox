@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.Viewport;
@@ -206,7 +207,7 @@ public class SelectAllAction
 
             if (View.Selection.SelectedMapContainer == null)
             {
-                PlatformUtils.Instance.MessageBox("Failed to select map container.", "Smithbox", MessageBoxButtons.OK);
+                PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Failed to select map container."), "Smithbox", MessageBoxButtons.OK);
                 return;
             }
 
@@ -230,7 +231,7 @@ public class SelectAllAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No object selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No object selected."), "Smithbox", MessageBoxButtons.OK);
         }
 
         View.DelayPicking();
@@ -255,7 +256,7 @@ public class SelectAllAction
 
             if (View.Selection.SelectedMapContainer == null)
             {
-                PlatformUtils.Instance.MessageBox("Failed to select map container.", "Smithbox", MessageBoxButtons.OK);
+                PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Failed to select map container."), "Smithbox", MessageBoxButtons.OK);
                 return;
             }
 
@@ -273,7 +274,7 @@ public class SelectAllAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No object selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No object selected."), "Smithbox", MessageBoxButtons.OK);
         }
 
         View.DelayPicking();
@@ -299,7 +300,7 @@ public class SelectAllAction
 
             if (View.Selection.SelectedMapContainer == null)
             {
-                PlatformUtils.Instance.MessageBox("Failed to select map container.", "Smithbox", MessageBoxButtons.OK);
+                PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Failed to select map container."), "Smithbox", MessageBoxButtons.OK);
                 return;
             }
 
@@ -321,7 +322,7 @@ public class SelectAllAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No object selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No object selected."), "Smithbox", MessageBoxButtons.OK);
         }
 
         View.DelayPicking();

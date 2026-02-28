@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -70,14 +71,14 @@ public class FileBrowserScreen : EditorScreen
 
     public void FileMenu()
     {
-        if (ImGui.BeginMenu("File"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("File")))
         {
-            if (ImGui.MenuItem($"View Game Directory"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("View Game Directory")))
             {
                 Process.Start("explorer.exe", Project.Descriptor.DataPath);
             }
 
-            if (ImGui.MenuItem($"View Project Directory"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("View Project Directory")))
             {
                 Process.Start("explorer.exe", Project.Descriptor.ProjectPath);
             }
@@ -90,12 +91,12 @@ public class FileBrowserScreen : EditorScreen
     {
         var activeView = ViewHandler.ActiveView;
 
-        if (ImGui.BeginMenu("Edit"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Edit")))
         {
             if (activeView != null)
             {
                 // Undo
-                if (ImGui.MenuItem($"Undo", $"{InputManager.GetHint(KeybindID.Undo)} / {InputManager.GetHint(KeybindID.Undo_Repeat)}"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Undo"), $"{InputManager.GetHint(KeybindID.Undo)} / {InputManager.GetHint(KeybindID.Undo_Repeat)}"))
                 {
                     if (activeView.ActionManager.CanUndo())
                     {
@@ -104,7 +105,7 @@ public class FileBrowserScreen : EditorScreen
                 }
 
                 // Undo All
-                if (ImGui.MenuItem($"Undo All"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Undo All")))
                 {
                     if (activeView.ActionManager.CanUndo())
                     {
@@ -113,7 +114,7 @@ public class FileBrowserScreen : EditorScreen
                 }
 
                 // Redo
-                if (ImGui.MenuItem($"Redo", $"{InputManager.GetHint(KeybindID.Redo)} / {InputManager.GetHint(KeybindID.Redo_Repeat)}"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Redo"), $"{InputManager.GetHint(KeybindID.Redo)} / {InputManager.GetHint(KeybindID.Redo_Repeat)}"))
                 {
                     if (activeView.ActionManager.CanRedo())
                     {
@@ -128,9 +129,9 @@ public class FileBrowserScreen : EditorScreen
 
     public void ViewMenu()
     {
-        if (ImGui.BeginMenu("View"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("View")))
         {
-            if (ImGui.MenuItem("Tools"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Tools")))
             {
                 CFG.Current.Interface_FileBrowser_ToolView = !CFG.Current.Interface_FileBrowser_ToolView;
             }

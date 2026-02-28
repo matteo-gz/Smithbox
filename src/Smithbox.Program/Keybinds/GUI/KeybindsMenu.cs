@@ -1,6 +1,7 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
 using SoulsFormats.Util;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Utilities;
 using System;
@@ -43,18 +44,18 @@ public class KeybindsMenu
             {
                 ImGui.BeginMenuBar();
 
-                if(ImGui.BeginMenu("Options"))
+                if(ImGui.BeginMenu(LocalizationManager.Instance.Get("Options")))
                 {
-                    if(ImGui.MenuItem("Save"))
+                    if(ImGui.MenuItem(LocalizationManager.Instance.Get("Save")))
                     {
                         InputManager.SaveKeybinds();
                         InputManager.SaveMousebinds();
-                        Smithbox.Log(this, "Shortcuts saved.");
+                        Smithbox.Log(this, LocalizationManager.Instance.Get("Shortcuts saved."));
                     }
 
-                    if (ImGui.MenuItem("Revert All to Default"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Revert All to Default")))
                     {
-                        var dialog = PlatformUtils.Instance.MessageBox("Are you sure?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Are you sure?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (dialog is DialogResult.Yes)
                         {
@@ -70,7 +71,7 @@ public class KeybindsMenu
 
                 ImGui.BeginTabBar("shortcutTabs");
 
-                if (ImGui.BeginTabItem("Keybinds"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Keybinds")))
                 {
                     DrawKeybindSearchBar();
 
@@ -85,7 +86,7 @@ public class KeybindsMenu
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem("Mousebinds"))
+                if (ImGui.BeginTabItem(LocalizationManager.Instance.Get("Mousebinds")))
                 {
                     DrawMousebindSearchBar();
 
@@ -109,7 +110,7 @@ public class KeybindsMenu
         {
             InputManager.SaveKeybinds();
             InputManager.SaveMousebinds();
-            Smithbox.Log(this, "Shortcuts saved.");
+            Smithbox.Log(this, LocalizationManager.Instance.Get("Shortcuts saved."));
         }
 
         _wasDisplayedLastFrame = IsDisplayed;
@@ -149,7 +150,7 @@ public class KeybindsMenu
     private void DrawKeybindSearchBar()
     {
         ImGui.PushItemWidth(-1);
-        ImGui.InputTextWithHint("##ShortcutSearch", "Search shortcuts...", ref _search, 128);
+        ImGui.InputTextWithHint("##ShortcutSearch", LocalizationManager.Instance.Get("Search shortcuts..."), ref _search, 128);
         ImGui.PopItemWidth();
 
         ImGui.SameLine();
@@ -201,14 +202,14 @@ public class KeybindsMenu
                     ImGuiTableFlags.Resizable))
                 {
                     ImGui.TableSetupColumn("##defaultAction", ImGuiTableColumnFlags.WidthFixed);
-                    ImGui.TableSetupColumn("Action", ImGuiTableColumnFlags.WidthFixed, nameColumnWidth);
-                    ImGui.TableSetupColumn("Binding", ImGuiTableColumnFlags.WidthFixed);
-                    ImGui.TableSetupColumn("Description");
+                    ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Action"), ImGuiTableColumnFlags.WidthFixed, nameColumnWidth);
+                    ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Binding"), ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Description"));
                     ImGui.TableHeadersRow();
 
                     foreach (var (action, bindings) in filteredActions)
                     {
-                        var name = "Unassigned";
+                        var name = LocalizationManager.Instance.Get("Unassigned");
                         var desc = "";
 
                         var presentation = KeybindMetadata.Presentation[action];
@@ -254,7 +255,7 @@ public class KeybindsMenu
                                 _listeningIndex == i;
 
                             string label = listening
-                                ? "Press combo..."
+                                ? LocalizationManager.Instance.Get("Press combo...")
                                 : FormatKeyBinding(b);
 
                             if (ImGui.Button($"{label}##{action}_{i}"))
@@ -398,7 +399,7 @@ public class KeybindsMenu
     private void DrawMousebindSearchBar()
     {
         ImGui.PushItemWidth(-1);
-        ImGui.InputTextWithHint("##MouseShortcutSearch", "Search shortcuts...", ref _search, 128);
+        ImGui.InputTextWithHint("##MouseShortcutSearch", LocalizationManager.Instance.Get("Search shortcuts..."), ref _search, 128);
         ImGui.PopItemWidth();
 
         ImGui.SameLine();
@@ -450,14 +451,14 @@ public class KeybindsMenu
                     ImGuiTableFlags.Resizable))
                 {
                     ImGui.TableSetupColumn("##defaultAction", ImGuiTableColumnFlags.WidthFixed);
-                    ImGui.TableSetupColumn("Action", ImGuiTableColumnFlags.WidthFixed, nameColumnWidth);
-                    ImGui.TableSetupColumn("Binding", ImGuiTableColumnFlags.WidthFixed);
-                    ImGui.TableSetupColumn("Description");
+                    ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Action"), ImGuiTableColumnFlags.WidthFixed, nameColumnWidth);
+                    ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Binding"), ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Description"));
                     ImGui.TableHeadersRow();
 
                     foreach (var (action, bindings) in filteredActions)
                     {
-                        var name = "Unassigned";
+                        var name = LocalizationManager.Instance.Get("Unassigned");
                         var desc = "";
 
                         var presentation = MousebindMetadata.Presentation[action];
@@ -503,7 +504,7 @@ public class KeybindsMenu
                                 _mouseListeningIndex == i;
 
                             string label = listening
-                                ? "Press combo..."
+                                ? LocalizationManager.Instance.Get("Press combo...")
                                 : FormatMouseBinding(b);
 
                             if (ImGui.Button($"{label}##{action}_{i}"))

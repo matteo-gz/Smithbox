@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Keybinds;
 using StudioCore.Utilities;
@@ -75,7 +76,7 @@ public class GotoAction
         }
         else
         {
-            PlatformUtils.Instance.MessageBox("No object selected.", "Smithbox", MessageBoxButtons.OK);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("No object selected."), "Smithbox", MessageBoxButtons.OK);
         }
     }
 }
