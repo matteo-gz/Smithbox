@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Octokit;
+using StudioCore;
 using StudioCore.Utilities;
 using System.Collections.Generic;
 using System.IO;
@@ -52,7 +53,7 @@ public class ProjectCreationMenu
 
             ImGui.PushStyleColor(ImGuiCol.WindowBg, UI.Current.ImGui_ChildBg);
 
-            if (ImGui.Begin("Project Creation##projectCreationWindow", ref IsDisplayed, UIHelper.GetPopupWindowFlags()))
+            if (ImGui.Begin(LocalizationManager.Instance.Get("Project Creation") + "##projectCreationWindow", ref IsDisplayed, UIHelper.GetPopupWindowFlags()))
             {
                 DisplayCreationTable();
 
@@ -69,22 +70,22 @@ public class ProjectCreationMenu
 
         if (ImGui.BeginTable($"projectCreationTable", 3, ImGuiTableFlags.SizingFixedFit))
         {
-            ImGui.TableSetupColumn("Title", ImGuiTableColumnFlags.WidthFixed);
-            ImGui.TableSetupColumn("Input", ImGuiTableColumnFlags.WidthFixed);
-            ImGui.TableSetupColumn("Action", ImGuiTableColumnFlags.WidthStretch);
+            ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Title"), ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Input"), ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn(LocalizationManager.Instance.Get("Action"), ImGuiTableColumnFlags.WidthStretch);
 
             // Project Name
             ImGui.TableNextRow();
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Name");
-            UIHelper.Tooltip("The name of the project.");
+            ImGui.Text(LocalizationManager.Instance.Get("Name"));
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("The name of the project."));
 
             ImGui.TableSetColumnIndex(1);
 
             DPI.ApplyInputWidth();
-            ImGui.InputTextWithHint("##projectNameInput", "The name of your project.", ref Descriptor.ProjectName, 255);
+            ImGui.InputTextWithHint("##projectNameInput", LocalizationManager.Instance.Get("The name of your project."), ref Descriptor.ProjectName, 255);
 
             ImGui.TableSetColumnIndex(2);
 
@@ -93,8 +94,8 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Project Type");
-            UIHelper.Tooltip("The game this project is targeting.");
+            ImGui.Text(LocalizationManager.Instance.Get("Project Type"));
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("The game this project is targeting."));
 
             ImGui.TableSetColumnIndex(1);
 
@@ -169,22 +170,22 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Project Directory");
-            UIHelper.Tooltip("The location of the project.\nHint: for most mods, this is the folder in which the mod's regulation.bin is stored.");
+            ImGui.Text(LocalizationManager.Instance.Get("Project Directory"));
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("The location of the project. Hint: for most mods, this is the folder in which the mod's regulation.bin is stored."));
 
             ImGui.TableSetColumnIndex(1);
 
             DPI.ApplyInputWidth();
-            ImGui.InputTextWithHint("##projectPathInput", "The folder directory that your project is stored in.", ref Descriptor.ProjectPath, 255);
+            ImGui.InputTextWithHint("##projectPathInput", LocalizationManager.Instance.Get("The folder directory that your project is stored in."), ref Descriptor.ProjectPath, 255);
 
             ImGui.TableSetColumnIndex(2);
 
-            if (ImGui.Button("Select##projectPathSelect", DPI.SelectorButtonSize))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##projectPathSelect", DPI.SelectorButtonSize))
             {
                 if (CFG.Current.Project_Default_Mod_Directory != "")
                 {
                     var newProjectPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Project Directory", out newProjectPath, CFG.Current.Project_Default_Mod_Directory);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Project Directory"), out newProjectPath, CFG.Current.Project_Default_Mod_Directory);
 
                     if (result)
                     {
@@ -194,7 +195,7 @@ public class ProjectCreationMenu
                 else
                 {
                     var newProjectPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Project Directory", out newProjectPath);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Project Directory"), out newProjectPath);
 
                     if (result)
                     {
@@ -208,36 +209,36 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Data Directory");
+            ImGui.Text(LocalizationManager.Instance.Get("Data Directory"));
 
-            var tooltip = "The location of the game data.";
+            var tooltip = LocalizationManager.Instance.Get("The location of the game data.");
             if (Descriptor.ProjectType is ProjectType.DES)
             {
-                tooltip = $"{tooltip}\nSelect the USRDIR folder.";
+                tooltip = $"{tooltip}\n{LocalizationManager.Instance.Get("Select the USRDIR folder.")}";
             }
             else if (Descriptor.ProjectType is ProjectType.BB)
             {
-                tooltip = $"{tooltip}\nSelect the dvdroot_ps4 folder.";
+                tooltip = $"{tooltip}\n{LocalizationManager.Instance.Get("Select the dvdroot_ps4 folder.")}";
             }
             else
             {
-                tooltip = $"{tooltip}\nSelect the folder that contains the game executable.";
+                tooltip = $"{tooltip}\n{LocalizationManager.Instance.Get("Select the folder that contains the game executable.")}";
             }
             UIHelper.Tooltip(tooltip);
 
             ImGui.TableSetColumnIndex(1);
 
             DPI.ApplyInputWidth();
-            ImGui.InputTextWithHint("##dataPathInput", "The folder directory the game data is stored in.", ref Descriptor.DataPath, 255);
+            ImGui.InputTextWithHint("##dataPathInput", LocalizationManager.Instance.Get("The folder directory the game data is stored in."), ref Descriptor.DataPath, 255);
 
             ImGui.TableSetColumnIndex(2);
 
-            if (ImGui.Button("Select##dataPathSelect", DPI.SelectorButtonSize))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##dataPathSelect", DPI.SelectorButtonSize))
             {
                 if (CFG.Current.Project_Default_Data_Directory != "")
                 {
                     var newDataPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Game Directory", out newDataPath, CFG.Current.Project_Default_Data_Directory);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Game Directory"), out newDataPath, CFG.Current.Project_Default_Data_Directory);
 
                     if (result)
                     {
@@ -247,7 +248,7 @@ public class ProjectCreationMenu
                 else
                 {
                     var newDataPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Game Directory", out newDataPath);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Game Directory"), out newDataPath);
 
                     if (result)
                     {
@@ -261,8 +262,8 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Automatic Load");
-            UIHelper.Tooltip("If true, then this project will be automatically loaded when Smithbox launches.");
+            ImGui.Text(LocalizationManager.Instance.Get("Automatic Load"));
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, then this project will be automatically loaded when Smithbox launches."));
 
             ImGui.TableSetColumnIndex(1);
 
@@ -276,8 +277,8 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Row Name Import");
-            UIHelper.Tooltip("If enabled, row names will be automatically imported in the Param Editor.");
+            ImGui.Text(LocalizationManager.Instance.Get("Row Name Import"));
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, row names will be automatically imported in the Param Editor."));
 
             ImGui.TableSetColumnIndex(1);
 
@@ -291,13 +292,13 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(0);
 
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Folder Tag");
-            UIHelper.Tooltip("A tag to apply to this project. Used to group the project under a folder in the selection list.");
+            ImGui.Text(LocalizationManager.Instance.Get("Folder Tag"));
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("A tag to apply to this project. Used to group the project under a folder in the selection list."));
 
             ImGui.TableSetColumnIndex(1);
 
             DPI.ApplyInputWidth();
-            ImGui.InputTextWithHint("##folderTagInput", "A tag to associate this project with.", ref Descriptor.FolderTag, 255);
+            ImGui.InputTextWithHint("##folderTagInput", LocalizationManager.Instance.Get("A tag to associate this project with."), ref Descriptor.FolderTag, 255);
 
             ImGui.TableSetColumnIndex(2);
 
@@ -321,7 +322,7 @@ public class ProjectCreationMenu
                 // Update
                 if (AllowCreation())
                 {
-                    if (ImGui.Button("Update##updateProjectCreation"))
+                    if (ImGui.Button(LocalizationManager.Instance.Get("Update") + "##updateProjectCreation"))
                     {
                         IsDisplayed = false;
                         IsEditMode = false;
@@ -331,7 +332,7 @@ public class ProjectCreationMenu
                 else
                 {
                     ImGui.BeginDisabled();
-                    if (ImGui.Button("Update##updateProjectCreation"))
+                    if (ImGui.Button(LocalizationManager.Instance.Get("Update") + "##updateProjectCreation"))
                     {
                     }
                     ImGui.EndDisabled();
@@ -339,7 +340,7 @@ public class ProjectCreationMenu
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Delete##deleteCurrentProject"))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Delete") + "##deleteCurrentProject"))
                 {
                     IsDisplayed = false;
                     IsEditMode = false;
@@ -348,19 +349,19 @@ public class ProjectCreationMenu
 
                 ImGui.SameLine();
 
-                // Cancel
-                if (ImGui.Button("Cancel##cancelProjectCreation"))
-                {
-                    IsDisplayed = false;
-                    IsEditMode = false;
-                }
+// Cancel
+                if (ImGui.Button(LocalizationManager.Instance.Get("Cancel") + "##cancelProjectCreation"))
+                    {
+                        IsDisplayed = false;
+                        IsEditMode = false;
+                    }
             }
             else
             {
                 // Create
                 if (AllowCreation())
                 {
-                    if (ImGui.Button("Create##createProjectCreation"))
+                    if (ImGui.Button(LocalizationManager.Instance.Get("Create") + "##createProjectCreation"))
                     {
                         IsDisplayed = false;
                         IsEditMode = false;
@@ -370,7 +371,7 @@ public class ProjectCreationMenu
                 else
                 {
                     ImGui.BeginDisabled();
-                    if (ImGui.Button("Create##createProjectCreation"))
+                    if (ImGui.Button(LocalizationManager.Instance.Get("Create") + "##createProjectCreation"))
                     {
                     }
                     ImGui.EndDisabled();
@@ -379,7 +380,7 @@ public class ProjectCreationMenu
                 ImGui.SameLine();
 
                 // Cancel
-                if (ImGui.Button("Cancel##cancelProjectCreation"))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Cancel") + "##cancelProjectCreation"))
                 {
                     IsDisplayed = false;
                     IsEditMode = false;
@@ -390,7 +391,7 @@ public class ProjectCreationMenu
 
     private void DisplayEditorToggles()
     {
-        if (ImGui.CollapsingHeader("Editors", ImGuiTreeNodeFlags.DefaultOpen))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Editors"), ImGuiTreeNodeFlags.DefaultOpen))
         {
             // Editor Toggles
             if (ImGui.BeginTable($"editorToggleTable", 6, ImGuiTableFlags.SizingFixedFit))
@@ -417,8 +418,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsMapEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Map Editor");
-                    UIHelper.Tooltip("If true, the Map Editor and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Map Editor"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Map Editor and associated data will be initialized for this project."));
                 }
 
                 ImGui.TableSetColumnIndex(2);
@@ -434,8 +435,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsModelEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Model Editor");
-                    UIHelper.Tooltip("If true, the Model Editor and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Model Editor"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Model Editor and associated data will be initialized for this project."));
                 }
 
                 ImGui.TableSetColumnIndex(4);
@@ -451,8 +452,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsTextEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Text Editor");
-                    UIHelper.Tooltip("If true, the Text Editor and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Text Editor"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Text Editor and associated data will be initialized for this project."));
                 }
 
 
@@ -471,8 +472,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsParamEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Param Editor");
-                    UIHelper.Tooltip("If true, the Param Editor and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Param Editor"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Param Editor and associated data will be initialized for this project."));
                 }
 
                 ImGui.TableSetColumnIndex(2);
@@ -488,8 +489,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsGraphicsParamEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Graphics Param Editor");
-                    UIHelper.Tooltip("If true, the Graphics Param Editor and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Graphics Param Editor"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Graphics Param Editor and associated data will be initialized for this project."));
                 }
 
                 ImGui.TableSetColumnIndex(4);
@@ -505,8 +506,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsMaterialEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Material Editor");
-                    UIHelper.Tooltip("If true, the Material Editor and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Material Editor"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Material Editor and associated data will be initialized for this project."));
                 }
 
                 // Section 3
@@ -524,8 +525,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsTextureViewer(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Texture Viewer");
-                    UIHelper.Tooltip("If true, the Texture Viewer and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Texture Viewer"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Texture Viewer and associated data will be initialized for this project."));
                 }
 
                 ImGui.TableSetColumnIndex(2);
@@ -541,8 +542,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsFileBrowser(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("File Browser");
-                    UIHelper.Tooltip("If true, the File Browser and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("File Browser"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the File Browser and associated data will be initialized for this project."));
                 }
 
                 ImGui.TableSetColumnIndex(4);
@@ -558,8 +559,8 @@ public class ProjectCreationMenu
                 if (ProjectUtils.SupportsAnimEditor(Descriptor.ProjectType))
                 {
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Animation Browser");
-                    UIHelper.Tooltip("If true, the Animation Browser and associated data will be initialized for this project.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Animation Browser"));
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Animation Browser and associated data will be initialized for this project."));
                 }
 
                 ImGui.EndTable();
@@ -570,7 +571,7 @@ public class ProjectCreationMenu
 
     private void DisplayDataToggles()
     {
-        if (ImGui.CollapsingHeader("Data", ImGuiTreeNodeFlags.DefaultOpen))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Data"), ImGuiTreeNodeFlags.DefaultOpen))
         {
             // Editor Toggles
             if (ImGui.BeginTable($"editorDataToggleTable", 6, ImGuiTableFlags.SizingFixedFit))
@@ -592,8 +593,8 @@ public class ProjectCreationMenu
                 ImGui.TableSetColumnIndex(1);
 
                 ImGui.AlignTextToFramePadding();
-                ImGui.Text("Material Data");
-                UIHelper.Tooltip("If true, the Map Editor and Model Editor will load all Material Data, which is required for texturing. Note: this increases RAM usage significantly.");
+                ImGui.Text(LocalizationManager.Instance.Get("Material Data"));
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("If true, the Map Editor and Model Editor will load all Material Data, which is required for texturing. Note: this increases RAM usage significantly."));
 
                 ImGui.TableSetColumnIndex(2);
 
@@ -630,19 +631,19 @@ public class ProjectCreationMenu
 
     private string GetCreationBlockedTooltip()
     {
-        var tooltip = "You cannot create a project due to the following issues:";
+        var tooltip = LocalizationManager.Instance.Get("You cannot create a project due to the following issues:");
 
         if (Descriptor.ProjectName == "")
-            tooltip = tooltip + "\n" + "Project Name cannot be empty.";
+            tooltip = tooltip + "\n" + LocalizationManager.Instance.Get("Project Name cannot be empty.");
 
         if (!Directory.Exists(Descriptor.ProjectPath))
-            tooltip = tooltip + "\n" + "Project Path is set to an invalid path.";
+            tooltip = tooltip + "\n" + LocalizationManager.Instance.Get("Project Path is set to an invalid path.");
 
         if (!Directory.Exists(Descriptor.DataPath))
-            tooltip = tooltip + "\n" + "Data Path is set to an invalid path.";
+            tooltip = tooltip + "\n" + LocalizationManager.Instance.Get("Data Path is set to an invalid path.");
 
         if (Descriptor.ProjectType is ProjectType.Undefined)
-            tooltip = tooltip + "\n" + "Project type cannot be undefined.";
+            tooltip = tooltip + "\n" + LocalizationManager.Instance.Get("Project type cannot be undefined.");
 
         return tooltip;
     }

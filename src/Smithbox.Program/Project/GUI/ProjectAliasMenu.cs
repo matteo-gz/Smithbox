@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
+using StudioCore;
 using StudioCore.Logger;
 using StudioCore.Utilities;
 using System;
@@ -40,7 +41,7 @@ public class ProjectAliasMenu
             InitialLayout = true;
         }
 
-        if (!ImGui.Begin("Project Aliases", ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
+        if (!ImGui.Begin(LocalizationManager.Instance.Get("Project Aliases"), ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
         {
             ImGui.End();
             return;
@@ -48,25 +49,25 @@ public class ProjectAliasMenu
 
         ImGui.BeginMenuBar();
 
-        if (ImGui.BeginMenu("File"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("File")))
         {
-            if (ImGui.MenuItem("Save Aliases"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Save Aliases")))
             {
                 IsDisplayed = false;
                 Save();
             }
-            UIHelper.Tooltip("Save alias changes to the project");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Save alias changes to the project"));
 
             ImGui.EndMenu();
         }
 
-        if (ImGui.BeginMenu("Data"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Data")))
         {
             ImGui.InputText("##exportDelimiter", ref CFG.Current.Project_Alias_Export_Delimiter, 255);
-            UIHelper.Tooltip("Set the delimiter to use when exporting the alias lists via 'Copy Entries as Text'");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Set the delimiter to use when exporting the alias lists via 'Copy Entries as Text'"));
 
-            ImGui.Checkbox("Ignore Empty on Export", ref CFG.Current.Project_Alias_Editor_Export_Ignore_Empty);
-            UIHelper.Tooltip("If enabled, empty entries will be ignored by the 'Copy Entries as Text' action.");
+            ImGui.Checkbox(LocalizationManager.Instance.Get("Ignore Empty on Export"), ref CFG.Current.Project_Alias_Editor_Export_Ignore_Empty);
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, empty entries will be ignored by the 'Copy Entries as Text' action."));
 
             ImGui.EndMenu();
         }
@@ -105,7 +106,7 @@ public class ProjectAliasMenu
     {
         ImGui.BeginChild("AliasTypeSidebar", new Vector2(0, 0));
 
-        ImGui.Text("Alias Types");
+        ImGui.Text(LocalizationManager.Instance.Get("Alias Types"));
         ImGui.Separator();
 
         foreach (var entry in Enum.GetValues<ProjectAliasType>())
@@ -128,7 +129,7 @@ public class ProjectAliasMenu
             {
                 if (ImGui.BeginPopupContextItem($"AliasTypeContextMenu"))
                 {
-                    if (ImGui.Selectable($"Copy Entries as Text"))
+                    if (ImGui.Selectable(LocalizationManager.Instance.Get("Copy Entries as Text")))
                     {
                         var entries = new List<string>();
 
@@ -152,7 +153,7 @@ public class ProjectAliasMenu
 
                     if (CFG.Current.Developer_Enable_Tools)
                     {
-                        if (ImGui.Selectable($"Copy Entries as Table"))
+                        if (ImGui.Selectable(LocalizationManager.Instance.Get("Copy Entries as Table")))
                         {
                             var entries = new List<string>();
 
@@ -190,20 +191,20 @@ public class ProjectAliasMenu
 
         if (CurrentAliasEditor == ProjectAliasType.None)
         {
-            ImGui.TextDisabled("Select an alias type.");
+            ImGui.TextDisabled(LocalizationManager.Instance.Get("Select an alias type."));
             ImGui.EndChild();
             return;
         }
 
         var source = GetAliasList();
 
-        ImGui.Text($"Entries ({source.Count})");
+        ImGui.Text($"{LocalizationManager.Instance.Get("Entries")} ({source.Count})");
         ImGui.Separator();
 
         ImGui.SetNextItemWidth(-1);
         ImGui.InputTextWithHint(
             "##aliasFilter",
-            "Filter by ID, name, or tag...",
+            LocalizationManager.Instance.Get("Filter by ID, name, or tag..."),
             ref AliasEntryFilter,
             255
         );
@@ -214,15 +215,15 @@ public class ProjectAliasMenu
 
         if (source.Count == 0)
         {
-            ImGui.TextDisabled("No aliases defined.");
+            ImGui.TextDisabled(LocalizationManager.Instance.Get("No aliases defined."));
             ImGui.Spacing();
 
-            if (ImGui.Button($"{Icons.Plus} Add Alias"))
+            if (ImGui.Button($"{Icons.Plus} {LocalizationManager.Instance.Get("Add Alias")}"))
             {
                 source.Add(new AliasEntry
                 {
                     ID = "NEW_ID",
-                    Name = "New Alias",
+                    Name = LocalizationManager.Instance.Get("New Alias"),
                     Tags = new List<string>()
                 });
             }
@@ -259,7 +260,7 @@ public class ProjectAliasMenu
 
                 if (ImGui.BeginPopupContextItem($"entry_ctx_{i}"))
                 {
-                    if (ImGui.Selectable("Duplicate"))
+                    if (ImGui.Selectable(LocalizationManager.Instance.Get("Duplicate")))
                     {
                         Orchestrator.ActionManager.ExecuteAction(
                             new ChangeAliasList(
@@ -275,7 +276,7 @@ public class ProjectAliasMenu
                                 i + 1));
                     }
 
-                    if (ImGui.Selectable("Remove"))
+                    if (ImGui.Selectable(LocalizationManager.Instance.Get("Remove")))
                     {
                         Orchestrator.ActionManager.ExecuteAction(
                             new ChangeAliasList(
@@ -327,18 +328,18 @@ public class ProjectAliasMenu
 
         if (CurrentAliasEntry == null)
         {
-            ImGui.TextDisabled("Select an alias entry to edit.");
+            ImGui.TextDisabled(LocalizationManager.Instance.Get("Select an alias entry to edit."));
             ImGui.EndChild();
             return;
         }
 
-        ImGui.Text("Alias Details");
+        ImGui.Text(LocalizationManager.Instance.Get("Alias Details"));
         ImGui.Separator();
 
         ImGui.Columns(2, "aliasEditorCols", false);
 
-        DrawTextField("ID", CurrentAliasEntry.ID, ProjectAliasFieldType.ID);
-        DrawTextField("Name", CurrentAliasEntry.Name, ProjectAliasFieldType.Name);
+        DrawTextField(LocalizationManager.Instance.Get("ID"), CurrentAliasEntry.ID, ProjectAliasFieldType.ID);
+        DrawTextField(LocalizationManager.Instance.Get("Name"), CurrentAliasEntry.Name, ProjectAliasFieldType.Name);
 
         ImGui.Columns(1);
         ImGui.Separator();
@@ -369,7 +370,7 @@ public class ProjectAliasMenu
 
     private void DrawTagsEditor()
     {
-        ImGui.Text("Tags");
+        ImGui.Text(LocalizationManager.Instance.Get("Tags"));
         ImGui.Separator();
 
         for (int i = 0; i < CurrentAliasEntry.Tags.Count; i++)
@@ -394,7 +395,7 @@ public class ProjectAliasMenu
                             curTagContents));
                 }
 
-                if (ImGui.Selectable("Remove"))
+                if (ImGui.Selectable(LocalizationManager.Instance.Get("Remove")))
                 {
                     Orchestrator.ActionManager.ExecuteAction(
                         new ChangeAliasTagList(
@@ -412,7 +413,7 @@ public class ProjectAliasMenu
         }
 
         ImGui.Spacing();
-        if (ImGui.Button($"{Icons.Plus} Add Tag"))
+        if (ImGui.Button($"{Icons.Plus} {LocalizationManager.Instance.Get("Add Tag")}"))
         {
             Orchestrator.ActionManager.ExecuteAction(
                 new ChangeAliasTagList(

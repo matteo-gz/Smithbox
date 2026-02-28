@@ -1,5 +1,6 @@
-﻿using Google.Protobuf.WellKnownTypes;
+using Google.Protobuf.WellKnownTypes;
 using Hexa.NET.ImGui;
+using StudioCore;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
@@ -35,21 +36,21 @@ public class ProjectEnumMenu
             InitialLayout = true;
         }
 
-        if (!ImGui.Begin("Project Enums", ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
+        if (!ImGui.Begin(LocalizationManager.Instance.Get("Project Enums"), ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
         {
             ImGui.End();
             return;
         }
 
         ImGui.BeginMenuBar();
-        if (ImGui.BeginMenu("File"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("File")))
         {
-            if (ImGui.MenuItem("Save Enums"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Save Enums")))
             {
                 IsDisplayed = false;
                 Save();
             }
-            UIHelper.Tooltip("Save alias changes to the project");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Save enum changes to the project"));
 
             ImGui.EndMenu();
         }
@@ -85,7 +86,7 @@ public class ProjectEnumMenu
     {
         ImGui.BeginChild("EnumSidebar", new Vector2(0, 0));
 
-        ImGui.Text("Enums");
+        ImGui.Text(LocalizationManager.Instance.Get("Enums"));
         ImGui.Separator();
 
         foreach (var entry in Orchestrator.SelectedProject.Handler.ProjectData.ProjectEnums.List)
@@ -118,20 +119,20 @@ public class ProjectEnumMenu
 
         if (CurrentEnum == null)
         {
-            ImGui.TextDisabled("Select an enum.");
+            ImGui.TextDisabled(LocalizationManager.Instance.Get("Select an enum."));
             ImGui.EndChild();
             return;
         }
 
         var options = CurrentEnum.Options ?? new List<ProjectEnumOption>();
 
-        ImGui.Text($"Options ({options.Count})");
+        ImGui.Text($"{LocalizationManager.Instance.Get("Options")} ({options.Count})");
         ImGui.Separator();
 
         ImGui.SetNextItemWidth(-1);
         ImGui.InputTextWithHint(
             "##optionFilter",
-            "Filter by name...",
+            LocalizationManager.Instance.Get("Filter by name..."),
             ref OptionEntryFilter,
             128
         );
@@ -141,16 +142,16 @@ public class ProjectEnumMenu
 
         if (options.Count == 0)
         {
-            ImGui.TextDisabled("No options defined.");
+            ImGui.TextDisabled(LocalizationManager.Instance.Get("No options defined."));
             ImGui.Spacing();
 
-            if (ImGui.Button($"{Icons.Plus} Add Option"))
+            if (ImGui.Button($"{Icons.Plus} {LocalizationManager.Instance.Get("Add Option")}"))
             {
                 CurrentEnum.Options ??= new();
                 CurrentEnum.Options.Add(new ProjectEnumOption
                 {
                     ID = "NEW_ID",
-                    Name = "New Option",
+                    Name = LocalizationManager.Instance.Get("New Option"),
                     Description = ""
                 });
             }
@@ -191,7 +192,7 @@ public class ProjectEnumMenu
 
                 if (ImGui.BeginPopupContextItem($"option_ctx_{i}"))
                 {
-                    if (ImGui.Selectable("Duplicate"))
+                    if (ImGui.Selectable(LocalizationManager.Instance.Get("Duplicate")))
                     {
                         Orchestrator.ActionManager.ExecuteAction(
                             new ChangeEnumList(
@@ -207,7 +208,7 @@ public class ProjectEnumMenu
                                 i + 1));
                     }
 
-                    if (ImGui.Selectable("Remove"))
+                    if (ImGui.Selectable(LocalizationManager.Instance.Get("Remove")))
                     {
                         Orchestrator.ActionManager.ExecuteAction(
                             new ChangeEnumList(
@@ -237,7 +238,7 @@ public class ProjectEnumMenu
 
         if (CurrentEnum == null)
         {
-            ImGui.TextDisabled("Select an enum or option to edit.");
+            ImGui.TextDisabled(LocalizationManager.Instance.Get("Select an enum or option to edit."));
             ImGui.EndChild();
             return;
         }
@@ -255,16 +256,16 @@ public class ProjectEnumMenu
 
     private void DrawEnumEditor()
     {
-        ImGui.Text("Enum Details");
+        ImGui.Text(LocalizationManager.Instance.Get("Enum Details"));
         ImGui.Separator();
 
         ImGui.Columns(2, "enumEditorCols", false);
 
-        DrawEnumField("Display Name",
+        DrawEnumField(LocalizationManager.Instance.Get("Display Name"),
             CurrentEnum.DisplayName,
             ProjectEnumFieldType.DisplayName);
 
-        DrawEnumField("Description",
+        DrawEnumField(LocalizationManager.Instance.Get("Description"),
             CurrentEnum.Description,
             ProjectEnumFieldType.Description);
 
@@ -292,20 +293,20 @@ public class ProjectEnumMenu
 
     private void DrawOptionEditor()
     {
-        ImGui.Text("Option Details");
+        ImGui.Text(LocalizationManager.Instance.Get("Option Details"));
         ImGui.Separator();
 
         ImGui.Columns(2, "optionEditorCols", false);
 
-        DrawOptionField("ID",
+        DrawOptionField(LocalizationManager.Instance.Get("ID"),
             CurrentOption.ID,
             ProjectEnumOptionFieldType.ID);
 
-        DrawOptionField("Name",
+        DrawOptionField(LocalizationManager.Instance.Get("Name"),
             CurrentOption.Name,
             ProjectEnumOptionFieldType.Name);
 
-        DrawOptionField("Description",
+        DrawOptionField(LocalizationManager.Instance.Get("Description"),
             CurrentOption.Description,
             ProjectEnumOptionFieldType.Description);
 

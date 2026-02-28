@@ -521,3 +521,159 @@ Rebuild File Dictionary
 重建文件字典
 Delete Unpacked Data
 删除已解包数据
+Project Enums
+项目枚举
+Save Enums
+保存枚举
+Save enum changes to the project
+将枚举更改保存到项目
+Enums
+枚举
+Select an enum.
+请选择一个枚举。
+Options
+选项
+Filter by name...
+按名称筛选...
+No options defined.
+未定义选项。
+Add Option
+添加选项
+New Option
+新选项
+Remove
+移除
+Select an enum or option to edit.
+选择要编辑的枚举或选项。
+Enum Details
+枚举详情
+Display Name
+显示名称
+Option Details
+选项详情
+Name
+名称
+Title
+标题
+Input
+输入
+The name of the project.
+项目名称。
+The name of your project.
+您的项目名称。
+Project Type
+项目类型
+The game this project is targeting.
+此项目所针对的游戏。
+Project Directory
+项目目录
+The location of the project. Hint: for most mods, this is the folder in which the mod's regulation.bin is stored.
+项目位置。提示：对于大多数 mod，此为存放 mod 的 regulation.bin 的文件夹。
+The folder directory that your project is stored in.
+项目所在文件夹路径。
+Select Project Directory
+选择项目目录
+Data Directory
+数据目录
+The location of the game data.
+游戏数据位置。
+Select the USRDIR folder.
+选择 USRDIR 文件夹。
+Select the dvdroot_ps4 folder.
+选择 dvdroot_ps4 文件夹。
+Select the folder that contains the game executable.
+选择包含游戏可执行文件的文件夹。
+The folder directory the game data is stored in.
+游戏数据所在文件夹路径。
+Select Game Directory
+选择游戏目录
+Automatic Load
+自动加载
+If true, then this project will be automatically loaded when Smithbox launches.
+若为真，则 Smithbox 启动时将自动加载此项目。
+Row Name Import
+行名称导入
+If enabled, row names will be automatically imported in the Param Editor.
+启用后，参数编辑器中将自动导入行名称。
+Folder Tag
+文件夹标签
+A tag to apply to this project. Used to group the project under a folder in the selection list.
+应用于此项目的标签。用于在选择列表中按文件夹对项目分组。
+A tag to associate this project with.
+与此项目关联的标签。
+Editors
+编辑器
+If true, the Map Editor and associated data will be initialized for this project.
+若为真，将为此项目初始化地图编辑器及相关数据。
+If true, the Model Editor and associated data will be initialized for this project.
+若为真，将为此项目初始化模型编辑器及相关数据。
+If true, the Text Editor and associated data will be initialized for this project.
+若为真，将为此项目初始化文本编辑器及相关数据。
+If true, the Param Editor and associated data will be initialized for this project.
+若为真，将为此项目初始化参数编辑器及相关数据。
+If true, the Graphics Param Editor and associated data will be initialized for this project.
+若为真，将为此项目初始化图形参数编辑器及相关数据。
+If true, the Material Editor and associated data will be initialized for this project.
+若为真，将为此项目初始化材质编辑器及相关数据。
+If true, the Texture Viewer and associated data will be initialized for this project.
+若为真，将为此项目初始化纹理查看器及相关数据。
+File Browser
+文件浏览器
+If true, the File Browser and associated data will be initialized for this project.
+若为真，将为此项目初始化文件浏览器及相关数据。
+Animation Browser
+动画浏览器
+If true, the Animation Browser and associated data will be initialized for this project.
+若为真，将为此项目初始化动画浏览器及相关数据。
+Material Data
+材质数据
+If true, the Map Editor and Model Editor will load all Material Data, which is required for texturing. Note: this increases RAM usage significantly.
+若为真，地图编辑器和模型编辑器将加载全部材质数据（贴图所需）。注意：会显著增加内存占用。
+You cannot create a project due to the following issues:
+由于以下原因无法创建项目：
+Project Name cannot be empty.
+项目名称不能为空。
+Project Path is set to an invalid path.
+项目路径设置为无效路径。
+Data Path is set to an invalid path.
+数据路径设置为无效路径。
+Project type cannot be undefined.
+项目类型不能未定义。
+Project Aliases
+项目别名
+Save Aliases
+保存别名
+Save alias changes to the project
+将别名更改保存到项目
+Set the delimiter to use when exporting the alias lists via 'Copy Entries as Text'
+设置通过“按文本复制条目”导出别名列表时使用的分隔符
+Ignore Empty on Export
+导出时忽略空项
+If enabled, empty entries will be ignored by the 'Copy Entries as Text' action.
+启用后，“按文本复制条目”将忽略空条目。
+Alias Types
+别名类型
+Copy Entries as Text
+按文本复制条目
+Copy Entries as Table
+按表格复制条目
+Select an alias type.
+请选择一种别名类型。
+Entries
+条目
+Filter by ID, name, or tag...
+按 ID、名称或标签筛选...
+No aliases defined.
+未定义别名。
+Add Alias
+添加别名
+New Alias
+新别名
+Select an alias entry to edit.
+选择要编辑的别名条目。
+Alias Details
+别名详情
+Tags
+标签
+Add Tag
+添加标签
