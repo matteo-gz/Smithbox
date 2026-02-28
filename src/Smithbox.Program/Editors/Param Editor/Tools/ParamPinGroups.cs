@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Utilities;
 using System;
@@ -393,7 +394,7 @@ public class ParamPinGroups
     {
         if(_newGroupName == "")
         {
-            PlatformUtils.Instance.MessageBox("Group name cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Group name cannot be empty"), LocalizationManager.Instance.Get("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
@@ -408,7 +409,7 @@ public class ParamPinGroups
     {
         if (_newGroupName == "")
         {
-            PlatformUtils.Instance.MessageBox("Group name cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Group name cannot be empty"), LocalizationManager.Instance.Get("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
@@ -423,7 +424,7 @@ public class ParamPinGroups
     {
         if (_newGroupName == "")
         {
-            PlatformUtils.Instance.MessageBox("Group name cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Group name cannot be empty"), LocalizationManager.Instance.Get("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 

@@ -94,22 +94,22 @@ public class ReorderAction
     /// </summary>
     public void OnMenu()
     {
-        if (ImGui.MenuItem("Move Up", InputManager.GetHint(KeybindID.Reorder_Up)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Move Up"), InputManager.GetHint(KeybindID.Reorder_Up)))
         {
             ApplyReorder(TreeObjectOrderMovementType.Up);
         }
 
-        if (ImGui.MenuItem("Move Down", InputManager.GetHint(KeybindID.Reorder_Down)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Move Down"), InputManager.GetHint(KeybindID.Reorder_Down)))
         {
             ApplyReorder(TreeObjectOrderMovementType.Down);
         }
 
-        if (ImGui.MenuItem("Move to Top", InputManager.GetHint(KeybindID.Reorder_Top)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Move to Top"), InputManager.GetHint(KeybindID.Reorder_Top)))
         {
             ApplyReorder(TreeObjectOrderMovementType.Top);
         }
 
-        if (ImGui.MenuItem("Move to Bottom", InputManager.GetHint(KeybindID.Reorder_Bottom)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Move to Bottom"), InputManager.GetHint(KeybindID.Reorder_Bottom)))
         {
             ApplyReorder(TreeObjectOrderMovementType.Bottom);
         }

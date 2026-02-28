@@ -150,16 +150,16 @@ public class ParamEditorScreen : EditorScreen
     #region Menubar
     public void FileMenu()
     {
-        if (ImGui.BeginMenu("File"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("File")))
         {
-            if (ImGui.MenuItem($"Save", $"{InputManager.GetHint(KeybindID.Save)}"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Save"), $"{InputManager.GetHint(KeybindID.Save)}"))
             {
                 Save();
             }
 
             ImGui.Separator();
 
-            if (ImGui.BeginMenu("Output on Manual Save"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Output on Manual Save")))
             {
                 if (ImGui.MenuItem($"PARAM"))
                 {
@@ -173,7 +173,7 @@ public class ParamEditorScreen : EditorScreen
             }
             UIHelper.Tooltip("Determines which files are outputted during the manual saving process.");
 
-            if (ImGui.BeginMenu("Output on Automatic Save"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Output on Automatic Save")))
             {
                 if (ImGui.MenuItem($"PARAM"))
                 {
@@ -194,10 +194,10 @@ public class ParamEditorScreen : EditorScreen
     {
         var activeView = ViewHandler.ActiveView;
 
-        if (ImGui.BeginMenu("Edit"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Edit")))
         {
             // Undo
-            if (ImGui.MenuItem($"Undo", $"{InputManager.GetHint(KeybindID.Undo)} / {InputManager.GetHint(KeybindID.Undo_Repeat)}"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Undo"), $"{InputManager.GetHint(KeybindID.Undo)} / {InputManager.GetHint(KeybindID.Undo_Repeat)}"))
             {
                 if (ActionManager.CanUndo())
                 {
@@ -206,7 +206,7 @@ public class ParamEditorScreen : EditorScreen
             }
 
             // Undo All
-            if (ImGui.MenuItem($"Undo All"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Undo All")))
             {
                 if (ActionManager.CanUndo())
                 {
@@ -215,7 +215,7 @@ public class ParamEditorScreen : EditorScreen
             }
 
             // Redo
-            if (ImGui.MenuItem($"Redo", $"{InputManager.GetHint(KeybindID.Redo)} / {InputManager.GetHint(KeybindID.Redo_Repeat)}"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Redo"), $"{InputManager.GetHint(KeybindID.Redo)} / {InputManager.GetHint(KeybindID.Redo_Repeat)}"))
             {
                 if (ActionManager.CanRedo())
                 {
@@ -223,17 +223,17 @@ public class ParamEditorScreen : EditorScreen
                 }
             }
 
-            if (ImGui.BeginMenu("Param Row"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Param Row")))
             {
                 // Duplicate
-                if (ImGui.MenuItem("Duplicate", InputManager.GetHint(KeybindID.Duplicate)))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Duplicate"), InputManager.GetHint(KeybindID.Duplicate)))
                 {
                     ParamRowDuplicate.ApplyDuplicate(activeView);
                 }
                 UIHelper.Tooltip($"Duplicates current selection.");
 
                 // Duplicate to Commutative Param
-                if (ImGui.BeginMenu("Duplicate to Commutative Param", ParamRowDuplicate.IsCommutativeParam(activeView)))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Duplicate to Commutative Param"), ParamRowDuplicate.IsCommutativeParam(activeView)))
                 {
                     ParamRowDuplicate.ApplyCommutativeDuplicate(activeView);
 
@@ -242,21 +242,21 @@ public class ParamEditorScreen : EditorScreen
                 UIHelper.Tooltip($"Duplicates current selection to a commutative param.");
 
                 // Delete
-                if (ImGui.MenuItem("Delete", InputManager.GetHint(KeybindID.Delete)))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Delete"), InputManager.GetHint(KeybindID.Delete)))
                 {
                     ParamRowDelete.ApplyDelete(activeView);
                 }
                 UIHelper.Tooltip($"Deletes current selection.");
 
                 // Copy
-                if (ImGui.MenuItem("Copy", InputManager.GetHint(KeybindID.Copy)))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Copy"), InputManager.GetHint(KeybindID.Copy)))
                 {
                     Clipboard.CopySelectionToClipboard(activeView);
                 }
                 UIHelper.Tooltip($"Copy current selection to clipboard.");
 
                 // Paste
-                if (ImGui.MenuItem("Paste", InputManager.GetHint(KeybindID.Paste)))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Paste"), InputManager.GetHint(KeybindID.Paste)))
                 {
                     if (Project.Handler.ParamData.PrimaryBank.ClipboardRows.Any())
                     {
@@ -266,7 +266,7 @@ public class ParamEditorScreen : EditorScreen
                 UIHelper.Tooltip($"Paste current selection into current param.");
 
                 // Jump
-                if (ImGui.MenuItem("Jump To Selected", InputManager.GetHint(KeybindID.Jump)))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Jump To Selected"), InputManager.GetHint(KeybindID.Jump)))
                 {
                     if (activeView.Selection.RowSelectionExists())
                     {
@@ -284,15 +284,15 @@ public class ParamEditorScreen : EditorScreen
 
     public void ViewMenu()
     {
-        if (ImGui.BeginMenu("View"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("View")))
         {
-            if (ImGui.MenuItem("Editor"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Editor")))
             {
                 CFG.Current.Interface_ParamEditor_Table = !CFG.Current.Interface_ParamEditor_Table;
             }
             UIHelper.ShowActiveStatus(CFG.Current.Interface_ParamEditor_Table);
 
-            if (ImGui.MenuItem("Tool Window"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Tool Window")))
             {
                 CFG.Current.Interface_ParamEditor_ToolWindow = !CFG.Current.Interface_ParamEditor_ToolWindow;
             }
@@ -310,16 +310,16 @@ public class ParamEditorScreen : EditorScreen
     {
         var activeParamExists = ViewHandler.ActiveView.Selection.ActiveParamExists();
 
-        if (ImGui.BeginMenu("Data"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Data")))
         {
-            if (ImGui.BeginMenu("Export CSV", activeParamExists))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Export CSV"), activeParamExists))
             {
                 ParamCsvTools.ExportMenu(ViewHandler.ActiveView);
 
                 ImGui.EndMenu();
             }
 
-            if (ImGui.BeginMenu("Import CSV", activeParamExists))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Import CSV"), activeParamExists))
             {
                 ParamCsvTools.ImportMenu(ViewHandler.ActiveView);
 
@@ -332,7 +332,7 @@ public class ParamEditorScreen : EditorScreen
 
     public void ComparisonMenu()
     {
-        if (ImGui.BeginMenu("Comparison"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Comparison")))
         {
             ToolMenu.ParamComparisonTools.ComparisonMenu(ViewHandler.ActiveView);
 
@@ -342,7 +342,7 @@ public class ParamEditorScreen : EditorScreen
 
     public void NamesMenu()
     {
-        if (ImGui.BeginMenu("Row Names"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Row Names")))
         {
             NameImporterMenu.Display(Project);
             NameExporterMenu.Display(Project);
@@ -353,7 +353,7 @@ public class ParamEditorScreen : EditorScreen
 
     public void MemoryMenu()
     {
-        if (ImGui.BeginMenu("Game"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Game")))
         {
             ToolMenu.ParamReloader.DisplayMenuOptions();
 

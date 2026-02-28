@@ -209,4 +209,212 @@ Delete
 Delete an existing list filter.
 删除现有列表筛选器。
 Select a list filter to narrow the map list down to a pre-defined set of maps.
+Text Entry Contents copied to clipboard
+文本条目内容已复制到剪贴板
+Clipboard
+剪贴板
+Group name cannot be empty
+组名不能为空
+Error
+错误
+Group name is empty.
+组名为空。
+Group name already exists.
+组名已存在。
+Selection is invalid.
+选择无效。
+Selection is empty.
+选择为空。
+Keybind already assigned to another selection group:
+快捷键已分配给其他选择组：
+You are about to delete this selection group. Are you sure?
+即将删除此选择组。确定吗？
+Overlay
+叠加层
+Controls
+控制
+Profiling
+性能分析
+Position Increment
+位置增量
+Rotation Increment
+旋转增量
+Quick View Tooltip
+快速视图提示
+Placement Orb
+放置球
+Camera
+相机
+Render
+渲染
+Scene Lighting
+场景光照
+Environment Map
+环境贴图
+Default
+默认
+Gizmos
+辅助线
+Enable Box Selection
+启用框选
+Map Pieces
+地图块
+Enemy
+敌人
+Player
+玩家
+Collision
+碰撞
+Light
+光
+Region
+区域
+Settings
+设置
+Enable rendering
+启用渲染
+Enable texturing
+启用贴图
+Enable culling
+启用剔除
+Enable model masks
+启用模型遮罩
+Quick View
+快速视图
+Display Nodes
+显示节点
+Model Load
+模型加载
+Texture Load
+纹理加载
+Characters
+角色
+Navmeshes
+导航网格
+Miscellaneous
+杂项
+Parts
+部件
+Resource List
+资源列表
+Filters
+筛选
+Filter Presets
+筛选预设
+Region Visibility
+区域可见性
+Collision Visibility
+碰撞可见性
+Patrol Route Visibility
+巡逻路线可见性
+Display
+显示
+Low
+低
+High
+高
+Fall Protection
+防坠落
+Output on Manual Save
+手动保存时输出
+Output on Automatic Save
+自动保存时输出
+Move Up
+上移
+Move Down
+下移
+Move to Top
+移到顶部
+Move to Bottom
+移到底部
+Game Visibility
+游戏可见性
+Set Map Object to Dummy
+将地图对象设为虚拟
+Set Map Object to Normal
+将地图对象设为正常
+Disable Map Object Game Presence
+禁用地图对象游戏存在
+Enable Map Object Game Presence
+启用地图对象游戏存在
+Duplicate
+复制
+Duplicate Selection
+复制所选
+Param Row
+参数行
+Duplicate to Commutative Param
+复制到可交换参数
+Copy
+复制
+Paste
+粘贴
+Jump To Selected
+跳转到所选
+Editor
+编辑器
+Tool Window
+工具窗口
+Data
+数据
+Export CSV
+导出 CSV
+Import CSV
+导入 CSV
+Comparison
+比较
+Row Names
+行名称
+Game
+游戏
+Toggle Region Visibility: OFF
+切换区域可见性：关
+Toggle Region Visibility: ON
+切换区域可见性：开
+Regions
+区域
+Lights
+灯光
+Collisions
+碰撞
+Connect Collisions
+连接碰撞
+Speed Trees
+速度树
+Invasion Points
+入侵点
+Light Probes
+光照探针
+Content Display
+内容显示
+Tree
+树形
+Flat
+平铺
+Extract Main File
+解压主文件
+Extract Selected Internal File
+解压所选内部文件
+ID
+ID
+Title
+标题
+Summary
+摘要
+Description
+描述
+Effect
+效果
+Text
+文本
+Add Title Entry
+添加标题条目
+Add Summary Entry
+添加摘要条目
+Add Description Entry
+添加描述条目
+Add Effect Entry
+添加效果条目
+No results to display.
+暂无结果可显示。
 选择列表筛选器以将地图列表缩小到预定义的地图集。

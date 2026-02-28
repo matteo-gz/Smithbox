@@ -1,6 +1,7 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.ModelEditor;
@@ -175,7 +176,7 @@ public class FileItemView
 
         ImGui.Text($"");
 
-        if (ImGui.Button("Extract Main File", DPI.ThirdWidthButton(sectionWidth, 24)))
+        if (ImGui.Button(LocalizationManager.Instance.Get("Extract Main File"), DPI.ThirdWidthButton(sectionWidth, 24)))
         {
             ExtractMainFile();
         }
@@ -185,7 +186,7 @@ public class FileItemView
         {
             ImGui.SameLine();
 
-            if (ImGui.Button("Extract Selected Internal File", DPI.ThirdWidthButton(sectionWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Extract Selected Internal File"), DPI.ThirdWidthButton(sectionWidth, 24)))
             {
                 ExtractInternalFile();
             }

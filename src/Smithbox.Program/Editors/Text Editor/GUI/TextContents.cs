@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using System.Collections.Generic;
@@ -90,7 +91,7 @@ public class TextContents
                 ImGui.TableNextRow();
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("ID");
+                ImGui.Text(LocalizationManager.Instance.Get("ID"));
 
                 ImGui.TableSetColumnIndex(1);
 
@@ -161,7 +162,7 @@ public class TextContents
 
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Title");
+                ImGui.Text(LocalizationManager.Instance.Get("Title"));
 
                 ImGui.TableSetColumnIndex(1);
 
@@ -184,11 +185,11 @@ public class TextContents
                 ImGui.TableNextRow();
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Title");
+                ImGui.Text(LocalizationManager.Instance.Get("Title"));
 
                 ImGui.TableSetColumnIndex(1);
 
-                if (ImGui.Button("Add Title Entry", DPI.HalfWidthButton(windowWidth, 24)))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Add Title Entry"), DPI.HalfWidthButton(windowWidth, 24)))
                 {
                     Parent.ActionHandler.AddTitleEntry(selectedFmgWrapper, selectedEntry);
                 }
@@ -208,7 +209,7 @@ public class TextContents
 
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Summary");
+                ImGui.Text(LocalizationManager.Instance.Get("Summary"));
 
                 ImGui.TableSetColumnIndex(1);
 
@@ -230,11 +231,11 @@ public class TextContents
                 ImGui.TableNextRow();
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Summary");
+                ImGui.Text(LocalizationManager.Instance.Get("Summary"));
 
                 ImGui.TableSetColumnIndex(1);
 
-                if (ImGui.Button("Add Summary Entry", DPI.HalfWidthButton(windowWidth, 24)))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Add Summary Entry"), DPI.HalfWidthButton(windowWidth, 24)))
                 {
                     Parent.ActionHandler.AddSummaryEntry(selectedFmgWrapper, selectedEntry);
                 }
@@ -254,7 +255,7 @@ public class TextContents
 
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Description");
+                ImGui.Text(LocalizationManager.Instance.Get("Description"));
 
                 ImGui.TableSetColumnIndex(1);
 
@@ -276,11 +277,11 @@ public class TextContents
                 ImGui.TableNextRow();
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Description");
+                ImGui.Text(LocalizationManager.Instance.Get("Description"));
 
                 ImGui.TableSetColumnIndex(1);
 
-                if (ImGui.Button("Add Description Entry", DPI.HalfWidthButton(windowWidth, 24)))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Add Description Entry"), DPI.HalfWidthButton(windowWidth, 24)))
                 {
                     Parent.ActionHandler.AddDescriptionEntry(selectedFmgWrapper, selectedEntry);
                 }
@@ -300,7 +301,7 @@ public class TextContents
 
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Effect");
+                ImGui.Text(LocalizationManager.Instance.Get("Effect"));
 
                 ImGui.TableSetColumnIndex(1);
 
@@ -322,11 +323,11 @@ public class TextContents
                 ImGui.TableNextRow();
                 ImGui.TableSetColumnIndex(0);
 
-                ImGui.Text("Effect");
+                ImGui.Text(LocalizationManager.Instance.Get("Effect"));
 
                 ImGui.TableSetColumnIndex(1);
 
-                if (ImGui.Button("Add Effect Entry", DPI.HalfWidthButton(windowWidth, 24)))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Add Effect Entry"), DPI.HalfWidthButton(windowWidth, 24)))
                 {
                     Parent.ActionHandler.AddEffectEntry(selectedFmgWrapper, selectedEntry);
                 }
@@ -356,7 +357,7 @@ public class TextContents
             ImGui.TableNextRow();
             ImGui.TableSetColumnIndex(0);
 
-            ImGui.Text("ID");
+            ImGui.Text(LocalizationManager.Instance.Get("ID"));
 
             ImGui.TableSetColumnIndex(1);
 
@@ -387,7 +388,7 @@ public class TextContents
 
             ImGui.TableSetColumnIndex(0);
 
-            ImGui.Text("Text");
+            ImGui.Text(LocalizationManager.Instance.Get("Text"));
 
             ImGui.TableSetColumnIndex(1);
 

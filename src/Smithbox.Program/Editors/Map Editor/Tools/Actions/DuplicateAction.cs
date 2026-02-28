@@ -52,7 +52,7 @@ public class DuplicateAction
     /// </summary>
     public void OnMenu()
     {
-        if (ImGui.MenuItem("Duplicate", InputManager.GetHint(KeybindID.Duplicate)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Duplicate"), InputManager.GetHint(KeybindID.Duplicate)))
         {
             ApplyDuplicate();
         }
@@ -66,7 +66,7 @@ public class DuplicateAction
     {
         var windowWidth = ImGui.GetWindowWidth();
 
-        if (ImGui.CollapsingHeader("Duplicate"))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Duplicate")))
         {
             DisplayMenu();
         }
@@ -125,7 +125,7 @@ public class DuplicateAction
 
         UIHelper.WrappedText("");
 
-        if (ImGui.Button("Duplicate Selection", DPI.WholeWidthButton(windowWidth, 24)))
+        if (ImGui.Button(LocalizationManager.Instance.Get("Duplicate Selection"), DPI.WholeWidthButton(windowWidth, 24)))
         {
             ApplyDuplicate();
         }

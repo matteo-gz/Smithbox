@@ -1,6 +1,7 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.Viewport;
@@ -100,16 +101,16 @@ public class MapEditorScreen : EditorScreen
     {
         var activeView = ViewHandler.ActiveView;
 
-        if (ImGui.BeginMenu("File"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("File")))
         {
-            if (ImGui.MenuItem($"Save", $"{InputManager.GetHint(KeybindID.Save)}"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Save"), $"{InputManager.GetHint(KeybindID.Save)}"))
             {
                 Save();
             }
 
             ImGui.Separator();
 
-            if (ImGui.BeginMenu("Output on Manual Save"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Output on Manual Save")))
             {
                 if (ImGui.MenuItem($"MSB"))
                 {
@@ -172,7 +173,7 @@ public class MapEditorScreen : EditorScreen
             }
             UIHelper.Tooltip("Determines which files are outputted during the manual saving process.");
 
-            if (ImGui.BeginMenu("Output on Automatic Save"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Output on Automatic Save")))
             {
                 if (ImGui.MenuItem($"MSB"))
                 {
@@ -243,12 +244,12 @@ public class MapEditorScreen : EditorScreen
     {
         var activeView = ViewHandler.ActiveView;
 
-        if (ImGui.BeginMenu("Edit"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Edit")))
         {
             if (activeView != null)
             {
                 // Undo
-                if (ImGui.MenuItem($"Undo", $"{InputManager.GetHint(KeybindID.Undo)} / {InputManager.GetHint(KeybindID.Undo_Repeat)}"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Undo"), $"{InputManager.GetHint(KeybindID.Undo)} / {InputManager.GetHint(KeybindID.Undo_Repeat)}"))
                 {
                     if (activeView.ViewportActionManager.CanUndo())
                     {
@@ -257,7 +258,7 @@ public class MapEditorScreen : EditorScreen
                 }
 
                 // Undo All
-                if (ImGui.MenuItem($"Undo All"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Undo All")))
                 {
                     if (activeView.ViewportActionManager.CanUndo())
                     {
@@ -266,7 +267,7 @@ public class MapEditorScreen : EditorScreen
                 }
 
                 // Redo
-                if (ImGui.MenuItem($"Redo", $"{InputManager.GetHint(KeybindID.Redo)} / {InputManager.GetHint(KeybindID.Redo_Repeat)}"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Redo"), $"{InputManager.GetHint(KeybindID.Redo)} / {InputManager.GetHint(KeybindID.Redo_Repeat)}"))
                 {
                     if (activeView.ViewportActionManager.CanRedo())
                     {
@@ -312,15 +313,15 @@ public class MapEditorScreen : EditorScreen
     public void ViewMenu()
     {
         // Dropdown: View
-        if (ImGui.BeginMenu("View"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("View")))
         {
-            if (ImGui.MenuItem("Tools"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Tools")))
             {
                 CFG.Current.Interface_MapEditor_ToolWindow = !CFG.Current.Interface_MapEditor_ToolWindow;
             }
             UIHelper.ShowActiveStatus(CFG.Current.Interface_MapEditor_ToolWindow);
 
-            if (ImGui.MenuItem("Resource List"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Resource List")))
             {
                 CFG.Current.Interface_MapEditor_ResourceList = !CFG.Current.Interface_MapEditor_ResourceList;
             }
@@ -354,13 +355,13 @@ public class MapEditorScreen : EditorScreen
              activeView.ViewportHandler.ActiveViewport.Viewport != null;
 
         // General Filters
-        if (ImGui.BeginMenu("Filters", validViewportState))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Filters"), validViewportState))
         {
             activeView.BasicFilters.Display();
 
             ImGui.Separator();
 
-            if (ImGui.BeginMenu("Filter Presets"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Filter Presets")))
             {
                 if (ImGui.MenuItem(CFG.Current.Viewport_Filter_Preset_1.Name))
                 {
@@ -414,7 +415,7 @@ public class MapEditorScreen : EditorScreen
             }
 
             // Region Filters
-            if (ImGui.BeginMenu("Region Visibility", validViewportState))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Region Visibility"), validViewportState))
             {
                 activeView.RegionFilters.DisplayOptions();
 
@@ -422,7 +423,7 @@ public class MapEditorScreen : EditorScreen
             }
 
             // Collision Filters
-            if (ImGui.BeginMenu("Collision Visibility", validViewportState))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Collision Visibility"), validViewportState))
             {
                 CollisionMenu();
 
@@ -430,18 +431,18 @@ public class MapEditorScreen : EditorScreen
             }
 
             // Patrol Routes
-            if (ImGui.BeginMenu("Patrol Route Visibility", validViewportState))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Patrol Route Visibility"), validViewportState))
             {
                 if (activeView.Project.Descriptor.ProjectType != ProjectType.DS2S && activeView.Project.Descriptor.ProjectType != ProjectType.DS2)
                 {
-                    if (ImGui.MenuItem("Display"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Display")))
                     {
                         activeView.PatrolDrawManager.Generate();
                         activeView.DelayPicking();
                     }
                     UIHelper.Tooltip("Display the connections between patrol route nodes.");
 
-                    if (ImGui.MenuItem("Clear"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Clear")))
                     {
                         activeView.PatrolDrawManager.Clear();
                         activeView.DelayPicking();
@@ -466,7 +467,7 @@ public class MapEditorScreen : EditorScreen
         var validViewportState = activeView.ViewportHandler.ActiveViewport.RenderScene != null &&
             activeView.ViewportHandler.ActiveViewport.Viewport != null;
 
-        if (ImGui.MenuItem("Low"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Low")))
         {
             activeView.HavokCollisionBank.VisibleCollisionType = HavokCollisionType.Low;
             CFG.Current.CurrentHavokCollisionType = HavokCollisionType.Low;
@@ -477,7 +478,7 @@ public class MapEditorScreen : EditorScreen
         UIHelper.Tooltip("Visible collision will use the low-detail mesh.\nUsed for standard collision.");
         UIHelper.ShowActiveStatus(activeView.HavokCollisionBank.VisibleCollisionType == HavokCollisionType.Low);
 
-        if (ImGui.MenuItem("High"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("High")))
         {
             activeView.HavokCollisionBank.VisibleCollisionType = HavokCollisionType.High;
             CFG.Current.CurrentHavokCollisionType = HavokCollisionType.High;
@@ -490,7 +491,7 @@ public class MapEditorScreen : EditorScreen
 
         if (Project.Descriptor.ProjectType is ProjectType.ER or ProjectType.NR)
         {
-            if (ImGui.MenuItem("Fall Protection"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Fall Protection")))
             {
                 activeView.HavokCollisionBank.VisibleCollisionType = HavokCollisionType.FallProtection;
                 CFG.Current.CurrentHavokCollisionType = HavokCollisionType.FallProtection;

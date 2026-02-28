@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.MapEditor;
@@ -47,9 +48,9 @@ public class ViewportMenu
 
     public void OverlayMenu()
     {
-        if (ImGui.BeginMenu("Overlay"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Overlay")))
         {
-            if (ImGui.MenuItem("Controls"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Controls")))
             {
                 CFG.Current.Viewport_DisplayControls = !CFG.Current.Viewport_DisplayControls;
                 Parent.DelayPicking();
@@ -57,7 +58,7 @@ public class ViewportMenu
             UIHelper.ShowActiveStatus(CFG.Current.Viewport_DisplayControls);
             UIHelper.Tooltip($"Toggle the display of the Control instructions in the top-left corner.");
 
-            if (ImGui.MenuItem("Profiling"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Profiling")))
             {
                 CFG.Current.Viewport_Display_Profiling = !CFG.Current.Viewport_Display_Profiling;
                 Parent.DelayPicking();
@@ -67,7 +68,7 @@ public class ViewportMenu
 
             if (Owner is MapUniverse mapUniverse)
             {
-                if (ImGui.MenuItem("Position Increment"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Position Increment")))
                 {
                     CFG.Current.Viewport_DisplayPositionIncrement = !CFG.Current.Viewport_DisplayPositionIncrement;
                     Parent.DelayPicking();
@@ -75,7 +76,7 @@ public class ViewportMenu
                 UIHelper.ShowActiveStatus(CFG.Current.Viewport_DisplayPositionIncrement);
                 UIHelper.Tooltip($"Toggle the display of the current Position Increment in the top-left corner.");
 
-                if (ImGui.MenuItem("Rotation Increment"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Rotation Increment")))
                 {
                     CFG.Current.Viewport_DisplayRotationIncrement = !CFG.Current.Viewport_DisplayRotationIncrement;
                     Parent.DelayPicking();
@@ -83,7 +84,7 @@ public class ViewportMenu
                 UIHelper.ShowActiveStatus(CFG.Current.Viewport_DisplayRotationIncrement);
                 UIHelper.Tooltip($"Toggle the display of the current Rotation Increment in the top-left corner.");
 
-                if (ImGui.MenuItem("Quick View Tooltip"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Quick View Tooltip")))
                 {
                     CFG.Current.QuickView_DisplayTooltip = !CFG.Current.QuickView_DisplayTooltip;
                     Parent.DelayPicking();
@@ -91,7 +92,7 @@ public class ViewportMenu
                 UIHelper.ShowActiveStatus(CFG.Current.QuickView_DisplayTooltip);
                 UIHelper.Tooltip($"Toggle the display of the Quick View tooltip on hover.");
 
-                if (ImGui.MenuItem("Placement Orb"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Placement Orb")))
                 {
                     CFG.Current.DisplayPlacementOrb = !CFG.Current.DisplayPlacementOrb;
                     Parent.DelayPicking();
@@ -106,7 +107,7 @@ public class ViewportMenu
 
     public void CameraMenu()
     {
-        if (ImGui.BeginMenu("Camera"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Camera")))
         {
             UIHelper.SimpleHeader("View Mode", "");
 
@@ -388,9 +389,9 @@ public class ViewportMenu
 
     public void RenderMenu()
     {
-        if (ImGui.BeginMenu("Render"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Render")))
         {
-            if (ImGui.BeginMenu("Scene Lighting"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Scene Lighting")))
             {
                 SceneParamsGui();
 
@@ -400,9 +401,9 @@ public class ViewportMenu
             // Map Editor
             if (Owner is MapUniverse mapUniverse)
             {
-                if (ImGui.BeginMenu("Environment Map"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Environment Map")))
                 {
-                    if (ImGui.MenuItem("Default"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Default")))
                     {
                         Parent.SetEnvMap(0);
                         Parent.DelayPicking();
@@ -433,7 +434,7 @@ public class ViewportMenu
 
     public void GizmoMenu()
     {
-        if (ImGui.BeginMenu("Gizmos"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Gizmos")))
         {
             GizmoState.OnMenu(Parent);
 
@@ -443,9 +444,9 @@ public class ViewportMenu
 
     public void SelectionMenu()
     {
-        if (ImGui.BeginMenu("Selection"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Selection")))
         {
-            if (ImGui.MenuItem("Enable Box Selection"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Enable Box Selection")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection = !CFG.Current.Viewport_Enable_Box_Selection;
                 Parent.DelayPicking();
@@ -455,7 +456,7 @@ public class ViewportMenu
 
             UIHelper.SimpleHeader("Box Selection Targets", "Which map objects will be selected by the box select.");
 
-            if (ImGui.MenuItem("Map Pieces"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Map Pieces")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection_MapPiece = !CFG.Current.Viewport_Enable_Box_Selection_MapPiece;
                 Parent.DelayPicking();
@@ -475,35 +476,35 @@ public class ViewportMenu
             }
             UIHelper.ShowActiveStatus(CFG.Current.Viewport_Enable_Box_Selection_Asset);
 
-            if (ImGui.MenuItem("Enemy"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Enemy")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection_Enemy = !CFG.Current.Viewport_Enable_Box_Selection_Enemy;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.Viewport_Enable_Box_Selection_Enemy);
 
-            if (ImGui.MenuItem("Player"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Player")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection_Player = !CFG.Current.Viewport_Enable_Box_Selection_Player;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.Viewport_Enable_Box_Selection_Player);
 
-            if (ImGui.MenuItem("Collision"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Collision")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection_Collision = !CFG.Current.Viewport_Enable_Box_Selection_Collision;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.Viewport_Enable_Box_Selection_Collision);
 
-            if (ImGui.MenuItem("Light"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Light")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection_Light = !CFG.Current.Viewport_Enable_Box_Selection_Light;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.Viewport_Enable_Box_Selection_Light);
 
-            if (ImGui.MenuItem("Region"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Region")))
             {
                 CFG.Current.Viewport_Enable_Box_Selection_Region = !CFG.Current.Viewport_Enable_Box_Selection_Region;
                 Parent.DelayPicking();
@@ -517,23 +518,23 @@ public class ViewportMenu
 
     public void SettingsMenu()
     {
-        if (ImGui.BeginMenu("Settings"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Settings")))
         {
-            if (ImGui.MenuItem("Enable rendering", CFG.Current.Viewport_Enable_Rendering))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Enable rendering"), CFG.Current.Viewport_Enable_Rendering))
             {
                 CFG.Current.Viewport_Enable_Rendering = !CFG.Current.Viewport_Enable_Rendering;
                 Parent.DelayPicking();
             }
             UIHelper.Tooltip($"Whether to render objects in the viewport.");
 
-            if (ImGui.MenuItem("Enable texturing", CFG.Current.Viewport_Enable_Texturing))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Enable texturing"), CFG.Current.Viewport_Enable_Texturing))
             {
                 CFG.Current.Viewport_Enable_Texturing = !CFG.Current.Viewport_Enable_Texturing;
                 Parent.DelayPicking();
             }
             UIHelper.Tooltip($"Whether to render textures in the viewport.");
 
-            if (ImGui.MenuItem("Enable culling", CFG.Current.Viewport_Enable_Culling))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Enable culling"), CFG.Current.Viewport_Enable_Culling))
             {
                 CFG.Current.Viewport_Enable_Culling = !CFG.Current.Viewport_Enable_Culling;
                 Parent.DelayPicking();
@@ -542,7 +543,7 @@ public class ViewportMenu
 
             if (Owner is MapUniverse mapUniverse)
             {
-                if (ImGui.MenuItem("Enable model masks", CFG.Current.Viewport_Enable_Model_Masks))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Enable model masks"), CFG.Current.Viewport_Enable_Model_Masks))
                 {
                     CFG.Current.Viewport_Enable_Model_Masks = !CFG.Current.Viewport_Enable_Model_Masks;
                     Parent.DelayPicking();
@@ -556,14 +557,14 @@ public class ViewportMenu
 
                 ImGui.Separator();
 
-                if (ImGui.BeginMenu("Quick View"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Quick View")))
                 {
                     mapUniverse.View.AutomaticPreviewTool.HandleQuickViewProperties();
 
                     ImGui.EndMenu();
                 }
 
-                if (ImGui.BeginMenu("Placement Orb"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Placement Orb")))
                 {
                     ImGui.DragFloat("Orb Distance", ref CFG.Current.PlacementOrb_Distance, 0.1f, 1f, 100f);
                     UIHelper.Tooltip($"Determines the distance in front of the camera the placement orb is.");
@@ -581,7 +582,7 @@ public class ViewportMenu
 
                 ImGui.Separator();
 
-                if (ImGui.BeginMenu("Display Nodes"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Display Nodes")))
                 {
                     ImGui.DragFloat("Dummy Size", ref CFG.Current.DummyMeshSize, 0.1f, 0.0001f, 1f);
                     UIHelper.Tooltip($"Determines the radius of the dummy polygon mesh.");
@@ -609,9 +610,9 @@ public class ViewportMenu
 
     public void MapModelLoadMenu()
     {
-        if (ImGui.BeginMenu("Model Load"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Model Load")))
         {
-            if (ImGui.MenuItem("Map Pieces"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Map Pieces")))
             {
                 CFG.Current.MapEditor_ModelLoad_MapPieces = !CFG.Current.MapEditor_ModelLoad_MapPieces;
                 Parent.DelayPicking();
@@ -636,7 +637,7 @@ public class ViewportMenu
             UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ModelLoad_MapPieces);
 
 
-            if (ImGui.MenuItem("Characters"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Characters")))
             {
                 CFG.Current.MapEditor_ModelLoad_Characters = !CFG.Current.MapEditor_ModelLoad_Characters;
                 Parent.DelayPicking();
@@ -650,7 +651,7 @@ public class ViewportMenu
             }
             UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ModelLoad_Collisions);
 
-            if (ImGui.MenuItem("Navmeshes"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Navmeshes")))
             {
                 CFG.Current.MapEditor_ModelLoad_Navmeshes = !CFG.Current.MapEditor_ModelLoad_Navmeshes;
                 Parent.DelayPicking();
@@ -665,9 +666,9 @@ public class ViewportMenu
 
     public void MapTextureLoadMenu()
     {
-        if (ImGui.BeginMenu("Texture Load"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Texture Load")))
         {
-            if (ImGui.MenuItem("Map Pieces"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Map Pieces")))
             {
                 CFG.Current.MapEditor_TextureLoad_MapPieces = !CFG.Current.MapEditor_TextureLoad_MapPieces;
                 Parent.DelayPicking();
@@ -691,14 +692,14 @@ public class ViewportMenu
             }
             UIHelper.ShowActiveStatus(CFG.Current.MapEditor_TextureLoad_Objects);
 
-            if (ImGui.MenuItem("Characters"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Characters")))
             {
                 CFG.Current.MapEditor_TextureLoad_Characters = !CFG.Current.MapEditor_TextureLoad_Characters;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.MapEditor_TextureLoad_Characters);
 
-            if (ImGui.MenuItem("Miscellaneous"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Miscellaneous")))
             {
                 CFG.Current.MapEditor_TextureLoad_Misc = !CFG.Current.MapEditor_TextureLoad_Misc;
                 Parent.DelayPicking();
@@ -712,9 +713,9 @@ public class ViewportMenu
 
     public void ModelModelLoadMenu()
     {
-        if (ImGui.BeginMenu("Model Load"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Model Load")))
         {
-            if (ImGui.MenuItem("Map Pieces"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Map Pieces")))
             {
                 CFG.Current.ModelEditor_ModelLoad_MapPieces = !CFG.Current.ModelEditor_ModelLoad_MapPieces;
                 Parent.DelayPicking();
@@ -738,14 +739,14 @@ public class ViewportMenu
             }
             UIHelper.ShowActiveStatus(CFG.Current.ModelEditor_ModelLoad_MapPieces);
 
-            if (ImGui.MenuItem("Characters"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Characters")))
             {
                 CFG.Current.ModelEditor_ModelLoad_Characters = !CFG.Current.ModelEditor_ModelLoad_Characters;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.ModelEditor_ModelLoad_Characters);
 
-            if (ImGui.MenuItem("Parts"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Parts")))
             {
                 CFG.Current.ModelEditor_ModelLoad_Parts = !CFG.Current.ModelEditor_ModelLoad_Parts;
                 Parent.DelayPicking();
@@ -771,9 +772,9 @@ public class ViewportMenu
 
     public void ModelTextureLoadMenu()
     {
-        if (ImGui.BeginMenu("Texture Load"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Texture Load")))
         {
-            if (ImGui.MenuItem("Map Pieces"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Map Pieces")))
             {
                 CFG.Current.ModelEditor_TextureLoad_MapPieces = !CFG.Current.ModelEditor_TextureLoad_MapPieces;
                 Parent.DelayPicking();
@@ -797,21 +798,21 @@ public class ViewportMenu
             }
             UIHelper.ShowActiveStatus(CFG.Current.ModelEditor_TextureLoad_Objects);
 
-            if (ImGui.MenuItem("Characters"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Characters")))
             {
                 CFG.Current.ModelEditor_TextureLoad_Characters = !CFG.Current.ModelEditor_TextureLoad_Characters;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.ModelEditor_TextureLoad_Characters);
 
-            if (ImGui.MenuItem("Parts"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Parts")))
             {
                 CFG.Current.ModelEditor_TextureLoad_Parts = !CFG.Current.ModelEditor_TextureLoad_Parts;
                 Parent.DelayPicking();
             }
             UIHelper.ShowActiveStatus(CFG.Current.ModelEditor_TextureLoad_Parts);
 
-            if (ImGui.MenuItem("Miscellaneous"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Miscellaneous")))
             {
                 CFG.Current.ModelEditor_TextureLoad_Misc = !CFG.Current.ModelEditor_TextureLoad_Misc;
                 Parent.DelayPicking();

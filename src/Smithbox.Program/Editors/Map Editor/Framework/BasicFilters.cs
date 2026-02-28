@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Renderer;
 
@@ -18,7 +19,7 @@ public class BasicFilters
         bool ticked;
 
         // Map Piece
-        if (ImGui.MenuItem("Map Pieces"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Map Pieces")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.MapPiece);
             View.DelayPicking();
@@ -43,7 +44,7 @@ public class BasicFilters
         UIHelper.Tooltip($"Toggle the display of map objects classified as '{name}'.");
 
         // Character
-        if (ImGui.MenuItem("Characters"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Characters")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.Character);
             View.DelayPicking();
@@ -53,7 +54,7 @@ public class BasicFilters
         UIHelper.Tooltip($"Toggle the display of map objects classified as 'Characters'.");
 
         // Region
-        if (ImGui.MenuItem("Regions"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Regions")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.Region);
             View.DelayPicking();
@@ -63,7 +64,7 @@ public class BasicFilters
         UIHelper.Tooltip($"Toggle the display of map objects classified as 'Regions'.");
 
         // Light
-        if (ImGui.MenuItem("Lights"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Lights")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.Light);
             View.DelayPicking();
@@ -73,7 +74,7 @@ public class BasicFilters
         UIHelper.Tooltip($"Toggle the display of map objects classified as 'Lights'.");
 
         // Collision
-        if (ImGui.MenuItem("Collisions"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Collisions")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.Collision);
             View.DelayPicking();
@@ -83,7 +84,7 @@ public class BasicFilters
         UIHelper.Tooltip($"Toggle the display of map objects classified as 'Collisions'.");
 
         // Collision
-        if (ImGui.MenuItem("Connect Collisions"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Connect Collisions")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.ConnectCollision);
             View.DelayPicking();
@@ -94,7 +95,7 @@ public class BasicFilters
 
 
         // Navmesh
-        if (ImGui.MenuItem("Navmeshes"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Navmeshes")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.Navmesh);
             View.DelayPicking();
@@ -104,7 +105,7 @@ public class BasicFilters
         UIHelper.Tooltip($"Toggle the display of map objects classified as 'Navmeshes'.");
 
         // Speed Trees
-        if (ImGui.MenuItem("Speed Trees"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Speed Trees")))
         {
             View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.SpeedTree);
             View.DelayPicking();
@@ -116,7 +117,7 @@ public class BasicFilters
         // AutoInvade
         if (View.Project.Descriptor.ProjectType is ProjectType.ER)
         {
-            if (ImGui.MenuItem("Invasion Points"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Invasion Points")))
             {
                 View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.AutoInvade);
                 View.DelayPicking();
@@ -129,7 +130,7 @@ public class BasicFilters
         // Light Probe
         if (View.Project.Descriptor.ProjectType is ProjectType.DS3 or ProjectType.BB)
         {
-            if (ImGui.MenuItem("Light Probes"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Light Probes")))
             {
                 View.ViewportHandler.ActiveViewport.RenderScene.ToggleDrawFilter(RenderFilter.LightProbe);
                 View.DelayPicking();

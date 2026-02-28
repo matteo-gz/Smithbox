@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -62,16 +63,16 @@ public class MapContentView
     {
         if (ImGui.BeginMenuBar())
         {
-            if (ImGui.BeginMenu("Content Display"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Content Display")))
             {
-                if (ImGui.MenuItem("Tree"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Tree")))
                 {
                     ContentViewType = MapContentViewType.ObjectType;
                 }
                 UIHelper.Tooltip("Display the content in the object type tree form.");
                 UIHelper.ShowActiveStatus(ContentViewType == MapContentViewType.ObjectType);
 
-                if (ImGui.MenuItem("Flat"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Flat")))
                 {
                     ContentViewType = MapContentViewType.Flat;
                 }

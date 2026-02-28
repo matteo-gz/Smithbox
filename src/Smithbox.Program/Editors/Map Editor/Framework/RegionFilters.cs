@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using System;
 using System.Collections.Generic;
@@ -219,7 +220,7 @@ public class RegionFilters
 
     public void DisplayCommonToggles()
     {
-        if (ImGui.MenuItem("Toggle Region Visibility: OFF"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Toggle Region Visibility: OFF")))
         {
             foreach (var entry in View.Project.Handler.MapData.PrimaryBank.Maps)
             {
@@ -240,7 +241,7 @@ public class RegionFilters
         }
         UIHelper.Tooltip("Toggle the visibility of regions of all types to invisible.");
 
-        if (ImGui.MenuItem("Toggle Region Visibility: ON"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Toggle Region Visibility: ON")))
         {
             foreach (var entry in View.Project.Handler.MapData.PrimaryBank.Maps)
             {

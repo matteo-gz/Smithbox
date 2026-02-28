@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using System;
@@ -86,7 +87,7 @@ public class IdSetFinder
         }
         else
         {
-            ImGui.Text("No results to display.");
+            ImGui.Text(LocalizationManager.Instance.Get("No results to display."));
         }
 
         UIHelper.WrappedText("");

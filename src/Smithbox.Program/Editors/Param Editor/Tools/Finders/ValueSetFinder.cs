@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using System;
 using System.Collections.Generic;
@@ -87,7 +88,7 @@ public class ValueSetFinder
         }
         else
         {
-            ImGui.Text("No results to display.");
+            ImGui.Text(LocalizationManager.Instance.Get("No results to display."));
         }
 
         UIHelper.WrappedText("");

@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -394,22 +395,22 @@ public class SelectionGroupTool
     {
         if (name == "")
         {
-            PlatformUtils.Instance.MessageBox("Group name is empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Group name is empty."), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         else if (!isEdit && View.Project.Handler.MapData.MapObjectSelections.Resources.Any(x => x.Name == name))
         {
-            PlatformUtils.Instance.MessageBox("Group name already exists.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Group name already exists."), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         else if (!isEdit && selection == null)
         {
-            PlatformUtils.Instance.MessageBox("Selection is invalid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Selection is invalid."), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         else if (!isEdit && selection.Count == 0)
         {
-            PlatformUtils.Instance.MessageBox("Selection is empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Selection is empty."), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         else if (keybindIndex != -1 && View.Project.Handler.MapData.MapObjectSelections.Resources.Any(x => x.SelectionGroupKeybind == keybindIndex))
@@ -419,7 +420,7 @@ public class SelectionGroupTool
             {
                 group = View.Project.Handler.MapData.MapObjectSelections.Resources.Where(x => x.SelectionGroupKeybind == keybindIndex && x.Name != name).First();
             }
-            PlatformUtils.Instance.MessageBox($"Keybind already assigned to another selection group: {group.Name}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Keybind already assigned to another selection group:") + " " + group.Name, LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         else
@@ -466,7 +467,7 @@ public class SelectionGroupTool
 
         if (CFG.Current.MapEditor_Selection_Group_Confirm_Delete)
         {
-            result = PlatformUtils.Instance.MessageBox($"You are about to delete this selection group. Are you sure?", $"Smithbox", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            result = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("You are about to delete this selection group. Are you sure?"), "Smithbox", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
         }
 
         if (result == DialogResult.Yes)

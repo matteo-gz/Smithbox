@@ -1,6 +1,7 @@
-﻿using SoulsFormats;
+using SoulsFormats;
 using System.Collections.Generic;
 using System.Linq;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Utilities;
@@ -438,7 +439,7 @@ public class TextActionHandler
                     }
 
                     PlatformUtils.Instance.SetClipboardText(copyText);
-                    PlatformUtils.Instance.MessageBox("Text Entry Contents copied to clipboard", "Clipboard", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("Text Entry Contents copied to clipboard"), LocalizationManager.Instance.Get("Clipboard"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     IsCurrentlyCopyingContents = false;
                 }
             );
