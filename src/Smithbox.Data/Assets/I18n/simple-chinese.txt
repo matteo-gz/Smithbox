@@ -209,6 +209,7 @@ Delete
 Delete an existing list filter.
 删除现有列表筛选器。
 Select a list filter to narrow the map list down to a pre-defined set of maps.
+选择列表筛选器以将地图列表缩小到预定义的地图集。
 Text Entry Contents copied to clipboard
 文本条目内容已复制到剪贴板
 Clipboard
