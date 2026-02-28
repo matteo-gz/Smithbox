@@ -40,7 +40,7 @@ public class KeybindsMenu
                 InitialLayout = true;
             }
 
-            if (ImGui.Begin("Shortcuts##keybindsMenu", ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
+            if (ImGui.Begin(LocalizationManager.Instance.Get("Shortcuts") + "##keybindsMenu", ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
             {
                 ImGui.BeginMenuBar();
 
@@ -194,7 +194,7 @@ public class KeybindsMenu
 
             var flags = ImGuiTreeNodeFlags.DefaultOpen;
 
-            if (ImGui.CollapsingHeader(categoryGroup.Key.GetDisplayName(), flags))
+            if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get(categoryGroup.Key.GetDisplayName()), flags))
             {
                 if (ImGui.BeginTable($"KeybindTable_{categoryGroup.Key}", 4,
                     ImGuiTableFlags.Borders |
@@ -209,7 +209,7 @@ public class KeybindsMenu
 
                     foreach (var (action, bindings) in filteredActions)
                     {
-                        var name = LocalizationManager.Instance.Get("Unassigned");
+                        var name = "Unassigned";
                         var desc = "";
 
                         var presentation = KeybindMetadata.Presentation[action];
@@ -241,7 +241,7 @@ public class KeybindsMenu
                         ImGui.TableSetColumnIndex(1);
 
                         // Name
-                        ImGui.TextUnformatted(name);
+                        ImGui.TextUnformatted(LocalizationManager.Instance.Get(name));
 
                         ImGui.TableSetColumnIndex(2);
 
@@ -270,7 +270,7 @@ public class KeybindsMenu
                         // Description
                         ImGui.TableSetColumnIndex(3);
 
-                        ImGui.TextUnformatted(desc);
+                        ImGui.TextUnformatted(LocalizationManager.Instance.Get(desc));
                     }
 
                     ImGui.EndTable();
@@ -443,7 +443,7 @@ public class KeybindsMenu
 
             var flags = ImGuiTreeNodeFlags.DefaultOpen;
 
-            if (ImGui.CollapsingHeader(categoryGroup.Key.GetDisplayName(), flags))
+            if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get(categoryGroup.Key.GetDisplayName()), flags))
             {
                 if (ImGui.BeginTable($"KeybindTable_{categoryGroup.Key}", 4,
                     ImGuiTableFlags.Borders |
@@ -458,7 +458,7 @@ public class KeybindsMenu
 
                     foreach (var (action, bindings) in filteredActions)
                     {
-                        var name = LocalizationManager.Instance.Get("Unassigned");
+                        var name = "Unassigned";
                         var desc = "";
 
                         var presentation = MousebindMetadata.Presentation[action];
@@ -490,7 +490,7 @@ public class KeybindsMenu
                         ImGui.TableSetColumnIndex(1);
 
                         // Name
-                        ImGui.TextUnformatted(name);
+                        ImGui.TextUnformatted(LocalizationManager.Instance.Get(name));
 
                         ImGui.TableSetColumnIndex(2);
 
@@ -519,7 +519,7 @@ public class KeybindsMenu
                         // Description
                         ImGui.TableSetColumnIndex(3);
 
-                        ImGui.TextUnformatted(desc);
+                        ImGui.TextUnformatted(LocalizationManager.Instance.Get(desc));
                     }
 
                     ImGui.EndTable();

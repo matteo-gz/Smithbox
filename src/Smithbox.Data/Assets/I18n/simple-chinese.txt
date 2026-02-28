@@ -1160,3 +1160,99 @@ Display Particle Aliases
 显示粒子别名
 If enabled, particle aliases are displayed.
 启用后显示粒子别名。
+Shortcuts
+快捷键
+Common
+常用
+Contextual
+上下文
+Enable Viewport Movement
+启用视口移动
+The button that is down to enable viewport movement input.
+按住该键时启用视口移动输入。
+Select Map Object
+选择地图对象
+The button that is pressed to select a map object in the viewport.
+在视口中按下该键以选择地图对象。
+Interact with Gizmo
+与辅助线交互
+The button that is down to interact with a gizmo control.
+按住该键以与辅助线控件交互。
+Display Viewport Context Menu
+显示视口上下文菜单
+The button that is pressed to open the viewport context menu.
+按下该键以打开视口上下文菜单。
+Start Box Drag
+开始框选拖动
+The button that is down to signal the start of the box selection drag.
+按住该键表示开始框选拖动。
+End Box Drag
+结束框选拖动
+The button that is released to signal the end of the box selection drag.
+释放该键表示结束框选拖动。
+Select Map in World Map
+在世界地图中选择地图
+The button that is pressed to select the maps to filter by when in the World Map menu.
+在世界地图菜单中按下该键以选择要筛选的地图。
+Start World Map Drag
+开始世界地图拖动
+The button that is down to signal the start of the world map drag.
+按住该键表示开始世界地图拖动。
+End World Map Drag
+结束世界地图拖动
+The button that is released to signal the end of the world map drag.
+释放该键表示结束世界地图拖动。
+Move Forward
+向前移动
+Within the viewport, this will move the camera forward.
+在视口中将相机向前移动。
+Move Backward
+向后移动
+Within the viewport, this will move the camera backward.
+在视口中将相机向后移动。
+Move Left
+向左移动
+Within the viewport, this will move the camera to the left.
+在视口中将相机向左移动。
+Move Right
+向右移动
+Within the viewport, this will move the camera to the right.
+在视口中将相机向右移动。
+Move Up
+向上移动
+Within the viewport, this will move the camera upwards.
+在视口中将相机向上移动。
+Move Down
+向下移动
+Within the viewport, this will move the camera downwards.
+在视口中将相机向下移动。
+Frame
+框选
+Within the viewport, this will frame the currently selected viewport object in the centre of the screen.
+在视口中将当前选中的视口对象置于屏幕中央。
+Pull
+拉近
+Within the viewport, this will move the currently selected viewport object to the camera's location.
+在视口中将当前选中的视口对象移至相机位置。
+Within the viewport, this reset the camera's location.
+在视口中重置相机位置。
+Set to Gizmo Translation Mode
+设为辅助线平移模式
+Within the viewport, this will switch the viewport object gizmo to 'Translate'.
+在视口中将视口对象辅助线切换为“平移”。
+Set to Gizmo Rotation Mode
+设为辅助线旋转模式
+Within the viewport, this will switch the viewport object gizmo to 'Rotate'.
+在视口中将视口对象辅助线切换为“旋转”。
+Set to Gizmo Scale Mode
+设为辅助线缩放模式
+Within the viewport, this will switch the viewport object gizmo to 'Scale'.
+在视口中将视口对象辅助线切换为“缩放”。
+Cycle Gizmo Origin Mode
+循环辅助线原点模式
+Within the viewport, this will switch the viewport object gizmo origin type.
+在视口中切换视口对象辅助线原点类型。
+Cycle Gizmo Worldspace Mode
+循环辅助线世界空间模式
+Within the viewport, this will switch the viewport object gizmo worldspace type.
+在视口中切换视口对象辅助线世界空间类型。
