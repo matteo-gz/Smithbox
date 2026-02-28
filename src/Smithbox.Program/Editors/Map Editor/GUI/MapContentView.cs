@@ -82,18 +82,18 @@ public class MapContentView
                 ImGui.EndMenu();
             }
 
-            if (ImGui.BeginMenu("Name Display"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Name Display")))
             {
                 var curType = CFG.Current.MapEditor_MapContentList_EntryNameDisplayType;
 
-                if (ImGui.MenuItem("Internal"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Internal")))
                 {
                     CFG.Current.MapEditor_MapContentList_EntryNameDisplayType = EntityNameDisplayType.Internal;
                 }
                 UIHelper.Tooltip("Display the internal map object name only.");
                 UIHelper.ShowActiveStatus(curType == EntityNameDisplayType.Internal);
 
-                if (ImGui.MenuItem("Internal + Text"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Internal + Text")))
                 {
                     CFG.Current.MapEditor_MapContentList_EntryNameDisplayType = EntityNameDisplayType.Internal_FMG;
                 }

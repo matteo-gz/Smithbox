@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Logger;
@@ -62,7 +63,7 @@ public class FileToolView
 
         if (CFG.Current.Interface_FileBrowser_Tool_GameUnpacker)
         {
-            if (ImGui.CollapsingHeader("Unpack Game Data"))
+            if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Unpack Game Data")))
             {
                 DisplayUnpacker();
             }
@@ -73,9 +74,9 @@ public class FileToolView
 
     public void ViewMenu()
     {
-        if (ImGui.BeginMenu("View"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("View")))
         {
-            if (ImGui.MenuItem("Game Unpacker"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Game Unpacker")))
             {
                 CFG.Current.Interface_FileBrowser_Tool_GameUnpacker = !CFG.Current.Interface_FileBrowser_Tool_GameUnpacker;
             }
@@ -96,7 +97,7 @@ public class FileToolView
 
         if (UnpackDirectory == "")
         {
-            if (ImGui.Button("Set Unpack Directory", DPI.WholeWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Set Unpack Directory"), DPI.WholeWidthButton(windowWidth, 24)))
             {
                 var unpackDirectory = "";
                 var result = PlatformUtils.Instance.OpenFolderDialog("Select Unpack Directory", out unpackDirectory);
@@ -139,7 +140,7 @@ public class FileToolView
 
         if (!IsUnpacking && ( !HasUnpackedGame()))
         {
-            if (ImGui.Button("Unpack Game", DPI.WholeWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Unpack Game"), DPI.WholeWidthButton(windowWidth, 24)))
             {
                 IsUnpacking = true;
 
@@ -175,14 +176,14 @@ public class FileToolView
             string label = $"Unpacking... {CurrentUnpacked} / {TotalToUnpack} files";
             ImGui.ProgressBar(progress, DPI.WholeWidthButton(windowWidth, 24), label);
 
-            if (ImGui.Button("Cancel", DPI.WholeWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Cancel"), DPI.WholeWidthButton(windowWidth, 24)))
             {
                 unpackCts?.Cancel();
             }
             UIHelper.Tooltip("This will cancel the game data unpack.");
         }
 
-        if (ImGui.Button("Rebuild File Dictionary##rebuildFileDict_main", DPI.WholeWidthButton(windowWidth, 24)))
+        if (ImGui.Button(LocalizationManager.Instance.Get("Rebuild File Dictionary") + "##rebuildFileDict_main", DPI.WholeWidthButton(windowWidth, 24)))
         {
             UpdateBaseFileDictionary();
         }
@@ -190,7 +191,7 @@ public class FileToolView
 
         if (!IsDeleting && HasUnpackedGame())
         {
-            if (ImGui.Button("Delete Unpacked Data", DPI.WholeWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Delete Unpacked Data"), DPI.WholeWidthButton(windowWidth, 24)))
             {
                 IsDeleting = true;
 
@@ -222,7 +223,7 @@ public class FileToolView
             string label = $"Deleting... {CurrentDeleted} / {TotalToDelete} files";
             ImGui.ProgressBar(progress, DPI.WholeWidthButton(windowWidth, 24), label);
 
-            if (ImGui.Button("Cancel", DPI.WholeWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Cancel"), DPI.WholeWidthButton(windowWidth, 24)))
             {
                 unpackCts?.Cancel();
             }

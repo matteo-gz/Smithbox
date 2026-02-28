@@ -1,6 +1,7 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.Extensions.Logging;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Logger;
@@ -38,7 +39,7 @@ public class ModelInstanceFinder
     {
         var windowWidth = ImGui.GetWindowWidth();
 
-        if (ImGui.CollapsingHeader("Model Instance Finder"))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Model Instance Finder")))
         {
             UIHelper.WrappedText("Search through all maps for usage of the specificed model name.");
             UIHelper.WrappedText("");
@@ -54,7 +55,7 @@ public class ModelInstanceFinder
 
             UIHelper.WrappedText("");
 
-            if (ImGui.Button("Search", DPI.WholeWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Search"), DPI.WholeWidthButton(windowWidth, 24)))
             {
                 SearchMaps();
             }

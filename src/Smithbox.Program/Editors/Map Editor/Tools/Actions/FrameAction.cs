@@ -57,7 +57,7 @@ public class FrameAction
     /// </summary>
     public void OnMenu()
     {
-        if (ImGui.MenuItem("Frame Selection", InputManager.GetHint(KeybindID.Frame)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Frame Selection"), InputManager.GetHint(KeybindID.Frame)))
         {
             ApplyViewportFrame();
         }

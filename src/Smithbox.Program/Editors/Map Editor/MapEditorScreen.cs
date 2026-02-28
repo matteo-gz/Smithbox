@@ -116,14 +116,14 @@ public class MapEditorScreen : EditorScreen
                 {
                     CFG.Current.MapEditor_ManualSave_IncludeMSB = !CFG.Current.MapEditor_ManualSave_IncludeMSB;
                 }
-                UIHelper.Tooltip("If enabled, the map files are outputted on save.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the map files are outputted on save."));
                 UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ManualSave_IncludeMSB);
 
                 if (ImGui.MenuItem($"BTL"))
                 {
                     CFG.Current.MapEditor_ManualSave_IncludeBTL = !CFG.Current.MapEditor_ManualSave_IncludeBTL;
                 }
-                UIHelper.Tooltip("If enabled, the light files are outputted on save.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the light files are outputted on save."));
                 UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ManualSave_IncludeBTL);
 
                 if (activeView != null)
@@ -134,7 +134,7 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_ManualSave_IncludeAIP = !CFG.Current.MapEditor_ManualSave_IncludeAIP;
                         }
-                        UIHelper.Tooltip("If enabled, the auto invade point files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the auto invade point files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ManualSave_IncludeAIP);
                     }
 
@@ -144,7 +144,7 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_ManualSave_IncludeNVA = !CFG.Current.MapEditor_ManualSave_IncludeNVA;
                         }
-                        UIHelper.Tooltip("If enabled, the navmesh configuration files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the navmesh configuration files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ManualSave_IncludeNVA);
                     }
 
@@ -154,7 +154,7 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_ManualSave_IncludeBTAB = !CFG.Current.MapEditor_ManualSave_IncludeBTAB;
                         }
-                        UIHelper.Tooltip("If enabled, the light atlas files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the light atlas files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ManualSave_IncludeBTAB);
                     }
 
@@ -164,14 +164,14 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_ManualSave_IncludeBTPB = !CFG.Current.MapEditor_ManualSave_IncludeBTPB;
                         }
-                        UIHelper.Tooltip("If enabled, the light probe files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the light probe files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_ManualSave_IncludeBTPB);
                     }
                 }
 
                 ImGui.EndMenu();
             }
-            UIHelper.Tooltip("Determines which files are outputted during the manual saving process.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Determines which files are outputted during the manual saving process."));
 
             if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Output on Automatic Save")))
             {
@@ -179,14 +179,14 @@ public class MapEditorScreen : EditorScreen
                 {
                     CFG.Current.MapEditor_AutomaticSave_IncludeMSB = !CFG.Current.MapEditor_AutomaticSave_IncludeMSB;
                 }
-                UIHelper.Tooltip("If enabled, the map files are outputted on save.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the map files are outputted on save."));
                 UIHelper.ShowActiveStatus(CFG.Current.MapEditor_AutomaticSave_IncludeMSB);
 
                 if (ImGui.MenuItem($"BTL"))
                 {
                     CFG.Current.MapEditor_AutomaticSave_IncludeBTL = !CFG.Current.MapEditor_AutomaticSave_IncludeBTL;
                 }
-                UIHelper.Tooltip("If enabled, the light files are outputted on save.");
+                UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the light files are outputted on save."));
                 UIHelper.ShowActiveStatus(CFG.Current.MapEditor_AutomaticSave_IncludeBTL);
 
                 if (activeView != null)
@@ -197,7 +197,7 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_AutomaticSave_IncludeAIP = !CFG.Current.MapEditor_AutomaticSave_IncludeAIP;
                         }
-                        UIHelper.Tooltip("If enabled, the auto invade point files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the auto invade point files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_AutomaticSave_IncludeAIP);
                     }
 
@@ -207,7 +207,7 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_AutomaticSave_IncludeNVA = !CFG.Current.MapEditor_AutomaticSave_IncludeNVA;
                         }
-                        UIHelper.Tooltip("If enabled, the navmesh configuration files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the navmesh configuration files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_AutomaticSave_IncludeNVA);
                     }
 
@@ -217,7 +217,7 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_AutomaticSave_IncludeBTAB = !CFG.Current.MapEditor_AutomaticSave_IncludeBTAB;
                         }
-                        UIHelper.Tooltip("If enabled, the light atlas files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the light atlas files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_AutomaticSave_IncludeBTAB);
                     }
 
@@ -227,14 +227,14 @@ public class MapEditorScreen : EditorScreen
                         {
                             CFG.Current.MapEditor_AutomaticSave_IncludeBTPB = !CFG.Current.MapEditor_AutomaticSave_IncludeBTPB;
                         }
-                        UIHelper.Tooltip("If enabled, the light probe files are outputted on save.");
+                        UIHelper.Tooltip(LocalizationManager.Instance.Get("If enabled, the light probe files are outputted on save."));
                         UIHelper.ShowActiveStatus(CFG.Current.MapEditor_AutomaticSave_IncludeBTPB);
                     }
                 }
 
                 ImGui.EndMenu();
             }
-            UIHelper.Tooltip("Determines which files are outputted during the automatic saving process.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Determines which files are outputted during the automatic saving process."));
 
             ImGui.EndMenu();
         }
@@ -440,14 +440,14 @@ public class MapEditorScreen : EditorScreen
                         activeView.PatrolDrawManager.Generate();
                         activeView.DelayPicking();
                     }
-                    UIHelper.Tooltip("Display the connections between patrol route nodes.");
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("Display the connections between patrol route nodes."));
 
                     if (ImGui.MenuItem(LocalizationManager.Instance.Get("Clear")))
                     {
                         activeView.PatrolDrawManager.Clear();
                         activeView.DelayPicking();
                     }
-                    UIHelper.Tooltip("Clear the display of connections between patrol route nodes.");
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("Clear the display of connections between patrol route nodes."));
                 }
 
                 ImGui.EndMenu();
@@ -475,7 +475,7 @@ public class MapEditorScreen : EditorScreen
             activeView.HavokCollisionBank.RefreshCollision();
             activeView.DelayPicking();
         }
-        UIHelper.Tooltip("Visible collision will use the low-detail mesh.\nUsed for standard collision.");
+        UIHelper.Tooltip(LocalizationManager.Instance.Get("Visible collision will use the low-detail mesh. Used for standard collision."));
         UIHelper.ShowActiveStatus(activeView.HavokCollisionBank.VisibleCollisionType == HavokCollisionType.Low);
 
         if (ImGui.MenuItem(LocalizationManager.Instance.Get("High")))
@@ -486,7 +486,7 @@ public class MapEditorScreen : EditorScreen
             activeView.HavokCollisionBank.RefreshCollision();
             activeView.DelayPicking();
         }
-        UIHelper.Tooltip("Visible collision will use the high-detail mesh.\nUsed for IK.");
+        UIHelper.Tooltip(LocalizationManager.Instance.Get("Visible collision will use the high-detail mesh. Used for IK."));
         UIHelper.ShowActiveStatus(activeView.HavokCollisionBank.VisibleCollisionType == HavokCollisionType.High);
 
         if (Project.Descriptor.ProjectType is ProjectType.ER or ProjectType.NR)
@@ -499,7 +499,7 @@ public class MapEditorScreen : EditorScreen
                 activeView.HavokCollisionBank.RefreshCollision();
                 activeView.DelayPicking();
             }
-            UIHelper.Tooltip("Visible collision will use the fall-protection mesh.\nUsed for enemy fall protection.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Visible collision will use the fall-protection mesh. Used for enemy fall protection."));
             UIHelper.ShowActiveStatus(activeView.HavokCollisionBank.VisibleCollisionType == HavokCollisionType.FallProtection);
         }
     }

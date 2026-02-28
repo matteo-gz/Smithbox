@@ -417,4 +417,107 @@ Add Effect Entry
 添加效果条目
 No results to display.
 暂无结果可显示。
-选择列表筛选器以将地图列表缩小到预定义的地图集。
+If enabled, the map files are outputted on save.
+启用时，保存时将输出地图文件。
+If enabled, the light files are outputted on save.
+启用时，保存时将输出光照文件。
+If enabled, the auto invade point files are outputted on save.
+启用时，保存时将输出自动入侵点文件。
+If enabled, the navmesh configuration files are outputted on save.
+启用时，保存时将输出导航网格配置文件。
+If enabled, the light atlas files are outputted on save.
+启用时，保存时将输出光照图集文件。
+If enabled, the light probe files are outputted on save.
+启用时，保存时将输出光照探针文件。
+Determines which files are outputted during the manual saving process.
+决定手动保存时输出哪些文件。
+Determines which files are outputted during the automatic saving process.
+决定自动保存时输出哪些文件。
+Display the connections between patrol route nodes.
+显示巡逻路线节点之间的连接。
+Clear the display of connections between patrol route nodes.
+清除巡逻路线节点之间的连接显示。
+Visible collision will use the low-detail mesh. Used for standard collision.
+可见碰撞将使用低精度网格。用于标准碰撞。
+Visible collision will use the high-detail mesh. Used for IK.
+可见碰撞将使用高精度网格。用于 IK。
+Visible collision will use the fall-protection mesh. Used for enemy fall protection.
+可见碰撞将使用防坠落网格。用于敌人防坠落。
+Delete
+删除
+Frame Selection
+框选
+Model Selector
+模型选择器
+Your current selection does not use a model.
+当前选择未使用模型。
+You must select a valid map object first.
+请先选择有效的地图对象。
+Name Display
+名称显示
+Internal
+内部
+Internal + Text
+内部 + 文本
+Model Insight
+模型洞察
+Extract FLVER
+导出 FLVER
+Extract DDS
+导出 DDS
+Extract Materials
+导出材质
+Pin Groups
+置顶组
+Clear Param Pins
+清除参数置顶
+Clear Row Pins
+清除行置顶
+Clear Field Pins
+清除字段置顶
+Create Param Group
+创建参数组
+Create Row Group
+创建行组
+Create Field Group
+创建字段组
+View Param Groups
+查看参数组
+View Row Groups
+查看行组
+View Field Groups
+查看字段组
+Community Names
+社区名称
+Developer Names
+开发者名称
+From JSON File
+从 JSON 文件
+From CSV File
+从 CSV 文件
+From Legacy Name Folder
+从旧版名称文件夹
+Meshes
+网格
+Dummy Polygons
+虚拟多边形
+Bones
+骨骼
+Model Instance Finder
+模型实例查找器
+Search
+搜索
+Game Unpacker
+游戏解包器
+Unpack Game Data
+解包游戏数据
+Set Unpack Directory
+设置解包目录
+Unpack Game
+解包游戏
+Cancel
+取消
+Rebuild File Dictionary
+重建文件字典
+Delete Unpacked Data
+删除已解包数据

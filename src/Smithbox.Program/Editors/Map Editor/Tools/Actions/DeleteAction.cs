@@ -50,7 +50,7 @@ public class DeleteAction
     /// </summary>
     public void OnMenu()
     {
-        if (ImGui.MenuItem("Delete", InputManager.GetHint(KeybindID.Delete)))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Delete"), InputManager.GetHint(KeybindID.Delete)))
         {
             ApplyDelete();
         }

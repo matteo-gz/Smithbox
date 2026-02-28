@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Keybinds;
@@ -31,7 +32,7 @@ public class ModelSelectorTool
     /// </summary>
     public void OnToolWindow()
     {
-        if (ImGui.CollapsingHeader("Model Selector"))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Model Selector")))
         {
             ImGui.InputText($"##selectorFilter", ref _searchInput, 255);
             UIHelper.Tooltip("Filter the model selector list. Separate terms are split via the + character.");
@@ -67,12 +68,12 @@ public class ModelSelectorTool
                 }
                 else
                 {
-                    ImGui.Text("Your current selection does not use a model.");
+                    ImGui.Text(LocalizationManager.Instance.Get("Your current selection does not use a model."));
                 }
             }
             else
             {
-                ImGui.Text("You must select a valid map object first.");
+                ImGui.Text(LocalizationManager.Instance.Get("You must select a valid map object first."));
             }
         }
     }

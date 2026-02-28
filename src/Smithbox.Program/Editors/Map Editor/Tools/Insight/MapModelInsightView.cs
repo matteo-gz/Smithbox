@@ -1,6 +1,7 @@
-﻿using Andre.IO.VFS;
+using Andre.IO.VFS;
 using Hexa.NET.ImGui;
 using SoulsFormats;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.Common;
 using StudioCore.Editors.ModelEditor;
@@ -29,7 +30,7 @@ public class MapModelInsightView
 
     public void OnToolWindow()
     {
-        if (ImGui.CollapsingHeader("Model Insight"))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Model Insight")))
         {
             var curEntity = View.ViewportSelection.GetSelection().FirstOrDefault();
 
@@ -123,7 +124,7 @@ public class MapModelInsightView
 
             ImGui.Separator();
 
-            if (ImGui.Button("Extract FLVER", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Extract FLVER"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 ExtractFLVER(Project, entry, outputDirectory);
             }
@@ -131,7 +132,7 @@ public class MapModelInsightView
 
             ImGui.SameLine();
 
-            if (ImGui.Button("Extract DDS", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Extract DDS"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 ExtractDDS(Project, entry, outputDirectory);
             }
@@ -139,7 +140,7 @@ public class MapModelInsightView
 
             ImGui.SameLine();
 
-            if (ImGui.Button("Extract Materials", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Extract Materials"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 ExtractMaterial(Project, entry, outputDirectory);
             }

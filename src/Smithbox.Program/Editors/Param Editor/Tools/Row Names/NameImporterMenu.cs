@@ -1,5 +1,6 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
 using Microsoft.AspNetCore.Components.Forms;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Utilities;
 using System;
@@ -22,9 +23,9 @@ public static class NameImporterMenu
         var paramData = curProject.Handler.ParamData;
         var activeView = curProject.Handler.ParamEditor.ViewHandler.ActiveView;
 
-        if (ImGui.BeginMenu("Import"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Import")))
         {
-            if (ImGui.BeginMenu("Community Names"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Community Names")))
             {
                 if (ImGui.MenuItem($"Selected Param"))
                 {
@@ -47,7 +48,7 @@ public static class NameImporterMenu
 
             if (ParamUtils.HasDeveloperRowNames(curProject))
             {
-                if (ImGui.BeginMenu("Developer Names"))
+                if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Developer Names")))
                 {
                     if (ImGui.MenuItem($"Selected Param"))
                     {
@@ -68,7 +69,7 @@ public static class NameImporterMenu
                 }
             }
 
-            if (ImGui.BeginMenu("From JSON File"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("From JSON File")))
             {
                 if (ImGui.MenuItem($"Selected Param"))
                 {
@@ -87,7 +88,7 @@ public static class NameImporterMenu
                 ImGui.EndMenu();
             }
 
-            if (ImGui.BeginMenu("From CSV File"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("From CSV File")))
             {
                 if (ImGui.MenuItem($"Selected Param"))
                 {
@@ -100,7 +101,7 @@ public static class NameImporterMenu
                 ImGui.EndMenu();
             }
 
-            if (ImGui.BeginMenu("From Legacy Name Folder"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("From Legacy Name Folder")))
             {
                 if (ImGui.MenuItem($"Selected Param"))
                 {

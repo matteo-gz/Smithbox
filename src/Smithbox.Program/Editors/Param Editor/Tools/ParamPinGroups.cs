@@ -43,7 +43,7 @@ public class ParamPinGroups
     {
         var windowWidth = ImGui.GetWindowWidth();
 
-        if (ImGui.CollapsingHeader("Pin Groups"))
+        if (ImGui.CollapsingHeader(LocalizationManager.Instance.Get("Pin Groups")))
         {
             UpdateGroupList();
 
@@ -63,21 +63,21 @@ public class ParamPinGroups
             ImGui.Checkbox("Show only pinned fields exclusively", ref CFG.Current.Param_PinGroups_ShowOnlyPinnedFields);
             UIHelper.Tooltip($"When enabled, only pinned fields will appear in the param list.");
 
-            if (ImGui.Button("Clear Param Pins", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Clear Param Pins"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 Editor.Project.Descriptor.PinnedParams = new();
             }
             UIHelper.Tooltip($"Clear current pinned params.");
 
             ImGui.SameLine();
-            if (ImGui.Button("Clear Row Pins", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Clear Row Pins"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 Editor.Project.Descriptor.PinnedRows = new();
             }
             UIHelper.Tooltip($"Clear current pinned rows.");
 
             ImGui.SameLine();
-            if (ImGui.Button("Clear Field Pins", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Clear Field Pins"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 Editor.Project.Descriptor.PinnedFields = new();
             }
@@ -92,21 +92,21 @@ public class ParamPinGroups
             DPI.ApplyInputWidth(windowWidth);
             ImGui.InputText("##newGroupName", ref _newGroupName, 255);
 
-            if (ImGui.Button("Create Param Group", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Create Param Group"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 CreateParamGroup();
             }
             UIHelper.Tooltip($"Create a new pin group from the current pinned params.");
 
             ImGui.SameLine();
-            if (ImGui.Button("Create Row Group", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Create Row Group"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 CreateRowGroup();
             }
             UIHelper.Tooltip($"Create a new pin group from the current pinned rows.");
 
             ImGui.SameLine();
-            if (ImGui.Button("Create Field Group", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("Create Field Group"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 CreateFieldGroup();
             }
@@ -116,17 +116,17 @@ public class ParamPinGroups
             UIHelper.WrappedTextColored(UI.Current.ImGui_AliasName_Text, $"Group Lists");
             ImGui.Separator();
 
-            if (ImGui.Button("View Param Groups", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("View Param Groups"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 CurrentDisplayState = ParamPinGroupDisplayState.Param;
             }
             ImGui.SameLine();
-            if (ImGui.Button("View Row Groups", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("View Row Groups"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 CurrentDisplayState = ParamPinGroupDisplayState.Row;
             }
             ImGui.SameLine();
-            if (ImGui.Button("View Field Groups", DPI.ThirdWidthButton(windowWidth, 24)))
+            if (ImGui.Button(LocalizationManager.Instance.Get("View Field Groups"), DPI.ThirdWidthButton(windowWidth, 24)))
             {
                 CurrentDisplayState = ParamPinGroupDisplayState.Field;
             }

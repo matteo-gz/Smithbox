@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.TextEditor;
 using System;
@@ -33,12 +34,12 @@ public class ModelViewHandler
 
     public void DisplayMenu()
     {
-        if (ImGui.MenuItem("New Editor View"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("New Editor View")))
         {
             AddView();
         }
 
-        if (ImGui.MenuItem("Close Current Editor View"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Close Current Editor View")))
         {
             if (CountViews() > 1)
             {
@@ -137,7 +138,7 @@ public class ModelViewHandler
                 {
                     if (ImGui.BeginPopupContextItem())
                     {
-                        if (ImGui.MenuItem("Close View"))
+                        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Close View")))
                         {
                             ViewToClose = view;
                         }

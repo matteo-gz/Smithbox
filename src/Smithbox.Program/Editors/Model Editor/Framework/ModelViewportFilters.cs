@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Renderer;
 
@@ -19,10 +20,10 @@ public class ModelViewportFilters
     {
         bool ticked;
 
-        if (ImGui.BeginMenu("Filters"))
+        if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Filters")))
         {
             // Meshes
-            if (ImGui.MenuItem("Meshes"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Meshes")))
             {
                 View.RenderScene.ToggleDrawFilter(RenderFilter.Meshes);
             }
@@ -31,7 +32,7 @@ public class ModelViewportFilters
             UIHelper.Tooltip("Toggle the display of meshes.");
 
             // Dummies
-            if (ImGui.MenuItem("Dummy Polygons"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Dummy Polygons")))
             {
                 View.RenderScene.ToggleDrawFilter(RenderFilter.Dummies);
             }
@@ -41,7 +42,7 @@ public class ModelViewportFilters
 
 
             // Nodes
-            if (ImGui.MenuItem("Bones"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Bones")))
             {
                 View.RenderScene.ToggleDrawFilter(RenderFilter.Nodes);
             }
@@ -50,7 +51,7 @@ public class ModelViewportFilters
             UIHelper.Tooltip("Toggle the display of bones.");
 
             // Collision
-            if (ImGui.MenuItem("Collision"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Collision")))
             {
                 View.RenderScene.ToggleDrawFilter(RenderFilter.Collision);
             }
