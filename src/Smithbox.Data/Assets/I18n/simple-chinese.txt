@@ -677,3 +677,111 @@ Tags
 标签
 Add Tag
 添加标签
+Loading Project
+正在加载项目
+Initializing Project
+正在初始化项目
+Setting up VFS
+正在设置 VFS
+Initializing editor stubs
+正在初始化编辑器存根
+Indexing project files
+正在索引项目文件
+Loading project data
+正在加载项目数据
+Loading project editors
+正在加载项目编辑器
+Finalizing
+正在完成
+Starting Project
+正在启动项目
+Preparing
+准备中
+Complete
+完成
+Current Project
+当前项目
+Reload
+重新加载
+Open Project Settings
+打开项目设置
+Open Project Aliases
+打开项目别名
+Open Project Enums
+打开项目枚举
+Set to Auto-Load
+设为自动加载
+Launch Mod
+启动 Mod
+Create Mod Profile
+创建 Mod 配置
+Create a ME3 profile file for this mod.
+为此 mod 创建 ME3 配置文件。
+Set ME3 Profile Directory
+设置 ME3 配置目录
+Select ME3 Profile Directory
+选择 ME3 配置目录
+Set the directory you wish to store ME3 profiles in.
+设置要存储 ME3 配置的目录。
+Open Project Folder
+打开项目文件夹
+Open Project JSON Folder
+打开项目 JSON 文件夹
+Clear Backup Files
+清除备份文件
+The current ME3 profile directory does not exist. Please configure the ME3 profile directory within the settings to a valid directory.
+当前 ME3 配置目录不存在。请在设置中将 ME3 配置目录设置为有效目录。
+Failed to find ME3 profile.
+未找到 ME3 配置。
+Undefined
+未定义
+Demon's Souls
+恶魔之魂
+Dark Souls: Prepare to Die
+黑暗之魂：受死版
+Dark Souls: Remastered
+黑暗之魂：重制版
+Dark Souls II: Scholar of the First Sin
+黑暗之魂 II：原罪学者
+Dark Souls III
+黑暗之魂 III
+Bloodborne
+血源诅咒
+Sekiro: Shadows Die Twice
+只狼：影逝二度
+Elden Ring
+艾尔登法环
+Armored Core VI: Fires of Rubicon
+装甲核心 VI：境界天火
+Dark Souls II
+黑暗之魂 II
+Elden Ring: Nightreign
+艾尔登法环：夜之统治
+None
+无
+Assets
+资源
+Characters
+角色
+Cutscenes
+过场动画
+Event Flags
+事件标志
+Gparams
+图形参数
+Map Pieces
+地图块
+Map Names
+地图名称
+Movies
+影片
+Particles
+粒子
+Parts
+部件
+Sounds
+声音
+Talk Scripts
+对话脚本
+Time Acts
+时间行为

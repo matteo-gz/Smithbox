@@ -119,7 +119,7 @@ public class ProjectAliasMenu
             if (selected)
                 ImGui.PushStyleColor(ImGuiCol.Header, ImGui.GetStyle().Colors[(int)ImGuiCol.HeaderActive]);
 
-            if (ImGui.Selectable($"{Icons.List} {entry.GetDisplayName()}", selected))
+            if (ImGui.Selectable($"{Icons.List} {LocalizationManager.Instance.Get(entry.GetDisplayName())}", selected))
             {
                 CurrentAliasEditor = entry;
                 CurrentAliasEntry = null;

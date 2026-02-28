@@ -1,4 +1,5 @@
-﻿using StudioCore.Utilities;
+using StudioCore;
+using StudioCore.Utilities;
 using System.Diagnostics;
 using System.IO;
 
@@ -24,7 +25,7 @@ public static class ModEngineHandler
 
         if (!Directory.Exists(CFG.Current.Project_ME3_Profile_Directory))
         {
-            Smithbox.Log(typeof(ModEngineHandler), "The current ME3 profile directory does not exist. Please configure the ME3 profile directory within the settings to a valid directory.");
+            Smithbox.Log(typeof(ModEngineHandler), LocalizationManager.Instance.Get("The current ME3 profile directory does not exist. Please configure the ME3 profile directory within the settings to a valid directory."));
             return;
         }
 
@@ -102,7 +103,7 @@ public static class ModEngineHandler
         }
         else
         {
-            Smithbox.Log(typeof(ModEngineHandler), $"[Smithbox] Failed to find profile: {readPath}");
+            Smithbox.Log(typeof(ModEngineHandler), LocalizationManager.Instance.Get("Failed to find ME3 profile.") + " " + readPath);
         }
     }
 }

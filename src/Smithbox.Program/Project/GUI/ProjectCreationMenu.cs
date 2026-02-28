@@ -100,7 +100,7 @@ public class ProjectCreationMenu
             ImGui.TableSetColumnIndex(1);
 
             DPI.ApplyInputWidth();
-            if (ImGui.BeginCombo("##projectTypePicker", Descriptor.ProjectType.GetDisplayName()))
+            if (ImGui.BeginCombo("##projectTypePicker", LocalizationManager.Instance.Get(Descriptor.ProjectType.GetDisplayName())))
             {
                 // Make the combo-box dropdown bigger so there is no need to scroll
                 ImGui.SetNextWindowSize(new Vector2(600.0f, 600.0f) * DPI.UIScale(), ImGuiCond.FirstUseEver);
@@ -109,7 +109,7 @@ public class ProjectCreationMenu
                 {
                     var type = (ProjectType)entry;
 
-                    if (ImGui.Selectable(type.GetDisplayName()))
+                    if (ImGui.Selectable(LocalizationManager.Instance.Get(type.GetDisplayName())))
                     {
                         Descriptor.ProjectType = type;
 

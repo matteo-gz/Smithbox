@@ -135,7 +135,7 @@ public class ProjectOrchestrator : IDisposable
             var imGuiID = project.Descriptor.ProjectGUID;
             var projectName = $"{project.Descriptor.ProjectName}";
 
-            if (ImGui.BeginMenu($"Current Project##projectEntry_{imGuiID}"))
+            if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Current Project") + "##projectEntry_" + imGuiID))
             {
                 DisplayProjectActions(project);
 
@@ -418,7 +418,7 @@ public class ProjectOrchestrator : IDisposable
                 UnloadProject(curProject);
             }
 
-            if (ImGui.MenuItem($"Reload##reloadProject"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Reload") + "##reloadProject"))
             {
                 SelectedProject = curProject;
 
@@ -431,7 +431,7 @@ public class ProjectOrchestrator : IDisposable
 
         ImGui.Separator();
 
-        if (ImGui.MenuItem($"Open Project Settings##projectSettings"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Open Project Settings") + "##projectSettings"))
         {
             CreationMenu.Project = curProject;
             CreationMenu.Descriptor = curProject.Descriptor;
@@ -441,13 +441,13 @@ public class ProjectOrchestrator : IDisposable
 
         if (curProject.Initialized)
         {
-            if (ImGui.MenuItem($"Open Project Aliases##projectAliases"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Open Project Aliases") + "##projectAliases"))
             {
                 AliasMenu.Setup(SelectedProject);
                 AliasMenu.IsDisplayed = true;
             }
 
-            if (ImGui.MenuItem($"Open Project Enums##projectEnums"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Open Project Enums") + "##projectEnums"))
             {
                 EnumMenu.IsDisplayed = true;
             }
@@ -458,7 +458,7 @@ public class ProjectOrchestrator : IDisposable
         {
             ImGui.Separator();
 
-            if (ImGui.MenuItem($"Set to Auto-Load"))
+            if (ImGui.MenuItem(LocalizationManager.Instance.Get("Set to Auto-Load")))
             {
                 SetAsAutoLoad(curProject);
             }
@@ -471,7 +471,7 @@ public class ProjectOrchestrator : IDisposable
 
             if (ModEngineHandler.ME3ProfileExists(curProject))
             {
-                if (ImGui.MenuItem($"Launch Mod##launchME3mod"))
+                if (ImGui.MenuItem(LocalizationManager.Instance.Get("Launch Mod") + "##launchME3mod"))
                 {
                     ModEngineHandler.LaunchME3Mod(curProject);
                 }
@@ -480,20 +480,20 @@ public class ProjectOrchestrator : IDisposable
             {
                 if (CFG.Current.Project_ME3_Profile_Directory != "")
                 {
-                    if (ImGui.MenuItem($"Create Mod Profile##createME3profile"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Create Mod Profile") + "##createME3profile"))
                     {
                         ModEngineHandler.CreateME3Profile(curProject);
                     }
 
-                    UIHelper.Tooltip("Create a ME3 profile file for this mod.");
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("Create a ME3 profile file for this mod."));
                 }
                 else
                 {
-                    if (ImGui.MenuItem($"Set ME3 Profile Directory"))
+                    if (ImGui.MenuItem(LocalizationManager.Instance.Get("Set ME3 Profile Directory")))
                     {
                         var profilePath = "";
                         var result =
-                            PlatformUtils.Instance.OpenFolderDialog("Select ME3 Profile Directory", out profilePath);
+                            PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select ME3 Profile Directory"), out profilePath);
 
                         if (result)
                         {
@@ -501,26 +501,26 @@ public class ProjectOrchestrator : IDisposable
                         }
                     }
 
-                    UIHelper.Tooltip("Set the directory you wish to store ME3 profiles in.");
+                    UIHelper.Tooltip(LocalizationManager.Instance.Get("Set the directory you wish to store ME3 profiles in."));
                 }
             }
         }
 
         ImGui.Separator();
 
-        if (ImGui.MenuItem($"Open Project Folder"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Open Project Folder")))
         {
             Process.Start("explorer.exe", curProject.Descriptor.ProjectPath);
         }
 
-        if (ImGui.MenuItem($"Open Project JSON Folder"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Open Project JSON Folder")))
         {
             var jsonPath = ProjectUtils.GetProjectsFolder();
 
             Process.Start("explorer.exe", jsonPath);
         }
 
-        if (ImGui.MenuItem($"Clear Backup Files##clearBackupFiles"))
+        if (ImGui.MenuItem(LocalizationManager.Instance.Get("Clear Backup Files") + "##clearBackupFiles"))
         {
             var root = curProject.Descriptor.ProjectPath;
 
@@ -950,7 +950,7 @@ public class ProjectOrchestrator : IDisposable
         if (!IsProjectLoading)
             return;
 
-        ImGui.OpenPopup("Loading Project##ProjectLoad");
+        ImGui.OpenPopup(LocalizationManager.Instance.Get("Loading Project") + "##ProjectLoad");
 
         if (!InitialLayout)
         {
@@ -959,14 +959,14 @@ public class ProjectOrchestrator : IDisposable
         }
 
         if (ImGui.BeginPopupModal(
-            "Loading Project##ProjectLoad",
+            LocalizationManager.Instance.Get("Loading Project") + "##ProjectLoad",
             ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoMove))
         {
             ProjectLoadProgress progress;
             lock (_progressLock)
                 progress = LoadProgress;
 
-            ImGui.Text(progress.PhaseLabel);
+            ImGui.Text(LocalizationManager.Instance.Get(progress.PhaseLabel));
             ImGui.Spacing();
 
             ImGui.ProgressBar(
@@ -978,7 +978,7 @@ public class ProjectOrchestrator : IDisposable
             if (!string.IsNullOrEmpty(progress.StepLabel))
             {
                 ImGui.Spacing();
-                ImGui.TextDisabled(progress.StepLabel);
+                ImGui.TextDisabled(LocalizationManager.Instance.Get(progress.StepLabel));
             }
 
             ImGui.EndPopup();
