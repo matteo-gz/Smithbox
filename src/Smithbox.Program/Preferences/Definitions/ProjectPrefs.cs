@@ -77,10 +77,10 @@ public class ProjectPrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Select##projectDirSelect", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##projectDirSelect", DPI.SelectorButtonSize))
                 {
                     var newProjectPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Project Directory", out newProjectPath);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Project Directory"), out newProjectPath);
 
                     if (result)
                     {
@@ -111,10 +111,10 @@ public class ProjectPrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Select##ProjectDataDirSelect", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##ProjectDataDirSelect", DPI.SelectorButtonSize))
                 {
                     var newDataPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Data Directory", out newDataPath);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Data Directory"), out newDataPath);
 
                     if (result)
                     {
@@ -373,10 +373,10 @@ public class ProjectPrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Select##me3ProfileDir", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##me3ProfileDir", DPI.SelectorButtonSize))
                 {
                     var newDataPath = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Directory", out newDataPath);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Directory"), out newDataPath);
 
                     if (result)
                     {
@@ -429,10 +429,10 @@ public class ProjectPrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Select##ptdeGameDirectorySelect", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##ptdeGameDirectorySelect", DPI.SelectorButtonSize))
                 {
                     var ptdeDir = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select PTDE directory", out ptdeDir);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select PTDE directory"), out ptdeDir);
 
                     if (result)
                     {
@@ -475,7 +475,7 @@ public class ProjectPrefs
 
                 if (curProject != null)
                 {
-                    if (ImGui.Button("Create Project Metadata##createProjectMetaData", DPI.StandardButtonSize))
+                    if (ImGui.Button(LocalizationManager.Instance.Get("Create Project Metadata") + "##createProjectMetaData", DPI.StandardButtonSize))
                     {
                         var dialog = PlatformUtils.Instance.MessageBox(LocalizationManager.Instance.Get("This will overwrite any existing project-specific metadata. Are you sure?"), LocalizationManager.Instance.Get("Warning"), MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 

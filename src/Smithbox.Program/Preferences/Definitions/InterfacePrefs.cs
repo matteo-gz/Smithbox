@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Utilities;
 using System;
@@ -44,7 +45,7 @@ public class InterfacePrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Reset", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Reset"), DPI.SelectorButtonSize))
                 {
                     CFG.Current.Interface_UI_Scale = CFG.Default.Interface_UI_Scale;
                     PreferencesUtil.TempScale = CFG.Current.Interface_UI_Scale;
@@ -266,9 +267,9 @@ public class InterfacePrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Set Font", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Set Font"), DPI.SelectorButtonSize))
                 {
-                    PlatformUtils.Instance.OpenFileDialog("Select Font", ["*"], out string path);
+                    PlatformUtils.Instance.OpenFileDialog(LocalizationManager.Instance.Get("Select Font"), ["*"], out string path);
                     if (File.Exists(path))
                     {
                         CFG.Current.Interface_English_Font_Path = path;
@@ -278,7 +279,7 @@ public class InterfacePrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Reset", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Reset"), DPI.SelectorButtonSize))
                 {
                     CFG.Current.Interface_English_Font_Path = Path.Join("Assets", "Fonts", "RobotoMono-Light.ttf");
                     Smithbox.FontRebuildRequest = true;
@@ -307,9 +308,9 @@ public class InterfacePrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Set Font", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Set Font"), DPI.SelectorButtonSize))
                 {
-                    PlatformUtils.Instance.OpenFileDialog("Select Font", ["*"], out string path);
+                    PlatformUtils.Instance.OpenFileDialog(LocalizationManager.Instance.Get("Select Font"), ["*"], out string path);
                     if (File.Exists(path))
                     {
                         CFG.Current.Interface_Non_English_Font_Path = path;
@@ -319,7 +320,7 @@ public class InterfacePrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Reset", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Reset"), DPI.SelectorButtonSize))
                 {
                     CFG.Current.Interface_Non_English_Font_Path = Path.Join("Assets", "Fonts", "NotoSansCJKtc-Light.otf");
                     Smithbox.FontRebuildRequest = true;
@@ -470,14 +471,14 @@ public class InterfacePrefs
                     ImGui.EndCombo();
                 }
 
-                if (ImGui.Button("Reset", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Reset"), DPI.SelectorButtonSize))
                 {
                     UI.LoadDefault();
                 }
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Open Folder", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Open Folder"), DPI.SelectorButtonSize))
                 {
                     Process.Start("explorer.exe", Path.Join(AppContext.BaseDirectory, "Assets", "Themes")); 
                 }
@@ -507,7 +508,7 @@ public class InterfacePrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Save", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Save"), DPI.SelectorButtonSize))
                 {
                     UI.ExportTheme(PreferencesUtil.NewThemeName);
                 }

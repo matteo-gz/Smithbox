@@ -786,3 +786,377 @@ Talk Scripts
 对话脚本
 Time Acts
 时间行为
+Preferences
+首选项
+Search preferences...
+搜索首选项...
+Reset
+重置
+Set Font
+设置字体
+Select Font
+选择字体
+Open Folder
+打开文件夹
+Default Language
+默认语言
+Select Build directory
+选择构建目录
+Select Directory
+选择目录
+Select PTDE directory
+选择 PTDE 目录
+Create Project Metadata
+创建项目元数据
+Preset Name
+预设名称
+Filters to Set
+要设置的筛选器
+Configure each of the six filter presets available.
+配置可用的六个筛选预设。
+OpenGL
+OpenGL
+Vulkan
+Vulkan
+Developer
+开发者
+Loggers
+日志
+Automatic Save
+自动保存
+Mod Engine 3
+Mod Engine 3
+Data Overrides
+数据覆盖
+Fonts
+字体
+Additional Font Symbols
+附加字体符号
+Theme
+主题
+Theme Builder
+主题构建器
+Filter Presets
+筛选预设
+Map List
+地图列表
+Map Contents
+地图内容
+Map Object Properties
+地图对象属性
+Additional Property Information
+附加属性信息
+Character Substitution
+字符替换
+Model Selector
+模型选择器
+Selection Groups
+选择组
+Regulation
+法规
+Param List
+参数列表
+Row List
+行列表
+Field List
+字段列表
+Field Input
+字段输入
+Param Context Menu
+参数上下文菜单
+Row Context Menu
+行上下文菜单
+Field Context Menu
+字段上下文菜单
+Mass Edit
+批量编辑
+Param Reloader
+参数重载器
+Container List
+容器列表
+Text File List
+文本文件列表
+Text Entry List
+文本条目列表
+Text Entires
+文本条目
+Text Export
+文本导出
+Language Sync
+语言同步
+Text Clipboard
+文本剪贴板
+Group List
+组列表
+Value List
+值列表
+Color Edit
+颜色编辑
+Texture List
+纹理列表
+Check for new versions of Smithbox during startup
+启动时检查 Smithbox 新版本
+When enabled Smithbox will automatically check for new versions upon program start.
+启用后，Smithbox 将在程序启动时自动检查新版本。
+Ignore Read Asserts
+忽略读取断言
+If enabled, when attempting to read files, asserts will be ignored.
+启用后，读取文件时将忽略断言。
+Use DCX Heuristic on Read
+读取时使用 DCX 启发式
+If enabled, if a DCX fails to read its compression type, use a heuristic to guess which it should be instead.
+启用后，若 DCX 无法读取压缩类型，将使用启发式猜测。
+Rendering Backend
+渲染后端
+Determines which rendering backend to use. Restart is required for changes to take affect.
+决定使用的渲染后端。更改后需重启生效。
+Language
+语言
+Select UI language. Some text may still be English if not translated.
+选择界面语言。未翻译的文本可能仍为英文。
+Enable Action Log
+启用操作日志
+If enabled, the action logger will be visible in the menu bar.
+启用后，操作日志将显示在菜单栏。
+Action Visibility Duration
+操作显示时长
+The number of frames for which the action logger message stays visible in the menu bar.\nAlso determines the time it takes for messages to fade colors.\n-1 means the message never disappears or fades.
+操作日志消息在菜单栏显示的帧数。\n也决定消息颜色淡出时间。\n-1 表示不消失也不淡出。
+Enable Warning Log
+启用警告日志
+If enabled, the warning logger will be visible in the menu bar.
+启用后，警告日志将显示在菜单栏。
+Warning Visibility Duration
+警告显示时长
+The number of frames for which the warning logger message stays visible in the menu bar.\nAlso determines the time it takes for messages to fade colors.\n-1 means the message never disappears or fades.
+警告日志消息在菜单栏显示的帧数。\n-1 表示不消失也不淡出。
+Enable Log Message Color Fade
+启用日志消息颜色淡出
+If enabled, log messages will slowly fade from their original color to a faded color.
+启用后，日志消息将逐渐从原色淡出。
+Log Popups
+日志弹窗
+If enabled, high priority log messages will cause a popup message box to appear.
+启用后，高优先级日志将弹出消息框。
+Enable Developer Tools
+启用开发者工具
+Enables various tools meant for Smithbox developers only.
+启用仅供 Smithbox 开发者使用的工具。
+Smithbox Build Folder
+Smithbox 构建文件夹
+Select the build directory for Smithbox (where the Smithbox.sln is placed).
+选择 Smithbox 构建目录（Smithbox.sln 所在位置）。
+Enable Auto-Load on Smithbox Start
+Smithbox 启动时启用自动加载
+If enabled, a previously loaded project will be loaded automatically upon starting Smithbox.
+启用后，启动 Smithbox 时将自动加载上次的项目。
+Enable Automatic Auto-Load Assignment
+启用自动“自动加载”分配
+If enabled, loading a project will automatically flag it to 'auto-load'.
+启用后，加载项目将自动将其设为“自动加载”。
+Default Project Directory
+默认项目目录
+The default directory to use during the project directory selection when creating a new project.
+创建新项目时，选择项目目录时使用的默认目录。
+Default Data Directory
+默认数据目录
+The default directory to use during the data directory selection when creating a new project.
+创建新项目时，选择数据目录时使用的默认目录。
+Enable Backup Saves
+启用备份保存
+If enabled, backup files are created during save events (i.e. .bak and .prev files).
+启用后，保存时会创建备份文件（如 .bak、.prev）。
+Enable Project Directory Addition Detection
+启用项目目录新增检测
+If enabled, new files that only reside in the project directory will be detected. Required if you are working with custom files and wnat them to appear in Smithbox.\nIf disabled, project startup is quicker.
+启用后，将检测仅位于项目目录的新文件。使用自定义文件时需开启。\n关闭可加快项目启动。
+Enable Strict Project Directory Scan
+启用严格项目目录扫描
+If enabled, the additional validation will be performed before adding a file to the project's file list.
+启用后，在将文件加入项目文件列表前会进行额外验证。
+Enable Automatic Save
+启用自动保存
+If enabled, all enabled editors will automatically save.
+启用后，已启用的编辑器将自动保存。
+Automatic Save Interval
+自动保存间隔
+The rate at which the automatic save occurs. In seconds.
+自动保存间隔（秒）。
+Include Map Editor
+包含地图编辑器
+If enabled, the Map Editor is automatically saved.
+启用后，将自动保存地图编辑器。
+Include Param Editor
+包含参数编辑器
+If enabled, the Param Editor is automatically saved.
+启用后，将自动保存参数编辑器。
+Include Text Editor
+包含文本编辑器
+If enabled, the Text Editor is automatically saved.
+启用后，将自动保存文本编辑器。
+Include Graphics Param Editor
+包含图形参数编辑器
+If enabled, the Graphics Param Editor is automatically saved.
+启用后，将自动保存图形参数编辑器。
+Include Material Editor
+包含材质编辑器
+If enabled, the Material Editor is automatically saved.
+启用后，将自动保存材质编辑器。
+ME3 Profile Directory
+ME3 配置目录
+Select the directory you want the generated ME3 profiles to be placed in.
+选择生成 ME3 配置的存放目录。
+Utilise PTDE Collisions in Dark Souls: Remastered Projects
+在黑暗之魂重制版项目中使用 PTDE 碰撞
+If enabled, and a Dark Souls: Prepare to Die Edition install exists, the collision files from it will be used for collisions and navmeshes.
+若已安装受死版，启用后将使用其碰撞与导航网格文件。
+PTDE Install Path
+PTDE 安装路径
+The install directory for Dark Souls: Prepare to Die Edition.
+黑暗之魂受死版的安装目录。
+Enable Project Metadata
+启用项目元数据
+If enabled, Smithbox will use project-specific metadata instead of Smithbox's base versions.
+启用后，Smithbox 将使用项目专属元数据而非内置版本。
+Interface Scale
+界面缩放
+Adjusts the scaling of the user interface throughout all of Smithbox.
+调整 Smithbox 整体界面缩放。
+Interface Scale affected by DPI
+界面缩放随 DPI 变化
+Multiplies the user interface scale by your monitor's DPI setting.
+将界面缩放乘以显示器 DPI。
+Font Size
+字体大小
+Adjusts the size of the font in Smithbox.
+调整 Smithbox 字体大小。
+Enable Alias Word-wrap
+启用别名自动换行
+If enabled, aliases will word-wrap if they touch a window's boundry. Otherwise, they will truncate.
+启用后，别名在触及窗口边界时会换行，否则截断。
+Enable Alias Word-wrap (Map Editor)
+启用别名自动换行（地图编辑器）
+If enabled, aliases will word-wrap if they touch a window's boundry. Otherwise, they will truncate. This affects the Map Editor only.
+仅在地图编辑器中生效。
+Enable Alias Word-wrap (Model Editor)
+启用别名自动换行（模型编辑器）
+If enabled, aliases will word-wrap if they touch a window's boundry. Otherwise, they will truncate. This affects the Model Editor only.
+仅在模型编辑器中生效。
+Enable Alias Word-wrap (Animation Editor)
+启用别名自动换行（动画编辑器）
+If enabled, aliases will word-wrap if they touch a window's boundry. Otherwise, they will truncate. This affects the Animation Editor only.
+仅在动画编辑器中生效。
+Enable Window Movement
+启用窗口移动
+If enabled, the internal windows can be moved and docked freely.
+启用后，内部窗口可自由移动与停靠。
+Popup Context Menu Width
+弹出上下文菜单宽度
+The width of a popup context menu within an editor.
+编辑器内弹出上下文菜单的宽度。
+Listbox Line Height Multiplier
+列表框行高倍数
+The line height multiple to use for a listbox per entry.
+列表框中每行的行高倍数。
+English Font
+英文字体
+Set the font used for English characters. .ttf and .otf expected.
+用于英文的字体。支持 .ttf、.otf。
+Non-English Font
+非英文字体
+Set the font used for Non-English characters. .ttf and .otf expected.
+用于非英文的字体。支持 .ttf、.otf。
+Enable Chinese
+启用中文
+Include Chinese font.
+包含中文字体。
+Enable Korean
+启用韩文
+Include Korean font.
+包含韩文字体。
+Enable Thai
+启用泰文
+Include Thai font.
+包含泰文字体。
+Enable Vietnamese
+启用越南文
+Include Vietnamese font.
+包含越南文字体。
+Enable Cyrillic
+启用西里尔文
+Include Cyrillic font.
+包含西里尔文字体。
+Theme Selection
+主题选择
+Select the interface theme to use for Smithbox.
+选择 Smithbox 的界面主题。
+New Theme Name
+新主题名称
+Frame Rate
+帧率
+Adjusts the frame rate of the viewport.
+调整视口帧率。
+Skip Havok Collision / Navmesh Loading
+跳过 Havok 碰撞/导航网格加载
+If enabled, the havok collisions and navmeshes will not be loaded.
+启用后，不加载 Havok 碰撞与导航网格。
+Enable Load on Double-click
+启用双击加载
+If enabled, double-clicking a map in the map list will load it.
+启用后，在地图列表中双击即可加载地图。
+Display Map Aliases
+显示地图别名
+If enabled, the map aliases for maps will be displayed.
+启用后显示地图别名。
+Display Community Names
+显示社区名称
+If enabled, community names are displayed for FLVER property names.
+启用后显示 FLVER 属性的社区名称。
+Display Community Descriptions
+显示社区描述
+If enabled, community descriptions are displayed in the tooltips for FLVER properties.
+启用后在 FLVER 属性提示中显示社区描述。
+Display Aliases
+显示别名
+If enabled, aliases are displayed in the file list.
+启用后在文件列表中显示别名。
+Display Add Missing Group Button
+显示“添加缺失组”按钮
+If enabled, a button for a missing group will be displayed that allows you to add it.
+启用后显示用于添加缺失组的按钮。
+Display Empty Groups
+显示空组
+If enabled, empty groups with no fields are displayed.
+启用后显示无字段的空组。
+Display Add Missing Field Button
+显示“添加缺失字段”按钮
+If enabled, a button for a missing field will be displayed that allows you to add it.
+启用后显示用于添加缺失字段的按钮。
+Display Color Edit for 4-digit Properties
+对 4 位属性显示颜色编辑
+If enabled, the color picker will be displayed on properties with a 4-digit type.
+启用后，对 4 位类型属性显示颜色选择器。
+Color Edit Display Mode
+颜色编辑显示模式
+Determines how the color edit displays the numeric data.
+决定颜色编辑中数值的显示方式。
+Display Character Aliases
+显示角色别名
+If enabled, character aliases are displayed.
+启用后显示角色别名。
+Display Asset Aliases
+显示资源别名
+If enabled, asset (object) aliases are displayed.
+启用后显示资源（对象）别名。
+Display Part Aliases
+显示部件别名
+If enabled, part aliases are displayed.
+启用后显示部件别名。
+Display Low Detail Entries
+显示低细节条目
+If enabled, low detail entries are displayed.
+启用后显示低细节条目。
+Display Particle Aliases
+显示粒子别名
+If enabled, particle aliases are displayed.
+启用后显示粒子别名。

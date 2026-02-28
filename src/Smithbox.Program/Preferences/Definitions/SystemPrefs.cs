@@ -1,4 +1,5 @@
 using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Editors.ParamEditor;
 using StudioCore.Utilities;
@@ -92,13 +93,13 @@ public class SystemPrefs
 
             Draw = () => {
                 DPI.ApplyInputWidth();
-                if (ImGui.BeginCombo("##inputValue", CFG.Current.System_RenderingBackend.GetDisplayName()))
+                if (ImGui.BeginCombo("##inputValue", LocalizationManager.Instance.Get(CFG.Current.System_RenderingBackend.GetDisplayName())))
                 {
                     foreach (var entry in Enum.GetValues(typeof(RenderingBackend)))
                     {
                         var type = (RenderingBackend)entry;
 
-                        if (ImGui.Selectable(type.GetDisplayName()))
+                        if (ImGui.Selectable(LocalizationManager.Instance.Get(type.GetDisplayName())))
                         {
                             CFG.Current.System_RenderingBackend = (RenderingBackend)entry;
                         }
@@ -130,7 +131,7 @@ public class SystemPrefs
                 var options = LocalizationManager.Instance.GetAvailableLanguages();
 
                 var current = options.FirstOrDefault(o => o.Key == CFG.Current.System_Language);
-                var currentLabel = string.IsNullOrEmpty(current.Label) ? "Default Language" : current.Label;
+                var currentLabel = string.IsNullOrEmpty(current.Label) ? LocalizationManager.Instance.Get("Default Language") : current.Label;
 
                 if (ImGui.BeginCombo("##inputValue", currentLabel))
                 {
@@ -316,10 +317,10 @@ public class SystemPrefs
 
                 ImGui.SameLine();
 
-                if (ImGui.Button("Select##smithboxBuildDirSelect", DPI.SelectorButtonSize))
+                if (ImGui.Button(LocalizationManager.Instance.Get("Select") + "##smithboxBuildDirSelect", DPI.SelectorButtonSize))
                 {
                     var smithboxBuildDir = "";
-                    var result = PlatformUtils.Instance.OpenFolderDialog("Select Build directory", out smithboxBuildDir);
+                    var result = PlatformUtils.Instance.OpenFolderDialog(LocalizationManager.Instance.Get("Select Build directory"), out smithboxBuildDir);
 
                     if (result)
                     {

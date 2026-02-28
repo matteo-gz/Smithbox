@@ -1,4 +1,5 @@
-﻿using Hexa.NET.ImGui;
+using Hexa.NET.ImGui;
+using StudioCore;
 using StudioCore.Application;
 using StudioCore.Renderer;
 using StudioCore.Utilities;
@@ -674,7 +675,7 @@ public class ViewportPrefs
 
                     UIHelper.SimpleHeader($"Preset {id}", "");
 
-                    ImGui.TextUnformatted("Preset Name");
+                    ImGui.TextUnformatted(LocalizationManager.Instance.Get("Preset Name"));
                     var nameInput = preset.Name;
                     DPI.ApplyInputWidth();
                     ImGui.InputText("##PresetName", ref nameInput, 32);
@@ -685,7 +686,7 @@ public class ViewportPrefs
 
                     const int columns = 6;
 
-                    ImGui.TextUnformatted("Filters to Set");
+                    ImGui.TextUnformatted(LocalizationManager.Instance.Get("Filters to Set"));
                     if (ImGui.BeginTable("RenderFilterTable", columns, ImGuiTableFlags.SizingFixedFit))
                     {
                         int columnIndex = 0;
@@ -723,7 +724,7 @@ public class ViewportPrefs
                     ImGui.PopID();
                 }
 
-                ImGui.Text("Configure each of the six filter presets available.");
+                ImGui.Text(LocalizationManager.Instance.Get("Configure each of the six filter presets available."));
 
                 ViewportFilterPresetEditor(1, CFG.Current.Viewport_Filter_Preset_1);
                 ViewportFilterPresetEditor(2, CFG.Current.Viewport_Filter_Preset_2);

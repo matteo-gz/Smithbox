@@ -73,7 +73,7 @@ public class PreferencesMenu
                 InitialLayout = true;
             }
 
-            if (ImGui.Begin("Preferences##appSettingsMenu", ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
+            if (ImGui.Begin(LocalizationManager.Instance.Get("Preferences") + "##appSettingsMenu", ref IsDisplayed, UIHelper.GetEditorPopupWindowFlags()))
             {
                 ImGui.BeginMenuBar();
 
@@ -233,7 +233,7 @@ public class PreferencesMenu
         if (!IsDisplayed && _wasDisplayedLastFrame)
         {
             CFG.Save();
-            Smithbox.Log(this, "Preferences saved.", LogLevel.Information);
+            Smithbox.Log(this, LocalizationManager.Instance.Get("Preferences saved."), LogLevel.Information);
         }
 
         _wasDisplayedLastFrame = IsDisplayed;
@@ -243,7 +243,7 @@ public class PreferencesMenu
 
     private void DisplaySettingsSearch()
     {
-        ImGui.InputTextWithHint("##settingsSearch", "Search preferences...", ref searchFilter, 128);
+        ImGui.InputTextWithHint("##settingsSearch", LocalizationManager.Instance.Get("Search preferences..."), ref searchFilter, 128);
     }
 
     private void DisplaySettings(List<PreferenceItem> prefs)
@@ -287,8 +287,8 @@ public class PreferencesMenu
 
         // Auto-expand sections if a search filter is active
         bool sectionOpen = string.IsNullOrWhiteSpace(searchFilter)
-            ? ImGui.CollapsingHeader(sectionGroup.Key.GetDisplayName(), ImGuiTreeNodeFlags.DefaultOpen)
-            : ImGui.CollapsingHeader(sectionGroup.Key.GetDisplayName(), ImGuiTreeNodeFlags.DefaultOpen);
+            ? ImGui.CollapsingHeader(LocalizationManager.Instance.Get(sectionGroup.Key.GetDisplayName()), ImGuiTreeNodeFlags.DefaultOpen)
+            : ImGui.CollapsingHeader(LocalizationManager.Instance.Get(sectionGroup.Key.GetDisplayName()), ImGuiTreeNodeFlags.DefaultOpen);
 
         if (sectionOpen)
         {
@@ -324,7 +324,7 @@ public class PreferencesMenu
 
                 if (!setting.InlineName)
                 {
-                    ImGui.Text($"{setting.Title}");
+                    ImGui.Text(LocalizationManager.Instance.Get(setting.Title));
                 }
 
                 setting.Draw?.Invoke();
@@ -332,12 +332,12 @@ public class PreferencesMenu
                 if (setting.InlineName)
                 {
                     ImGui.SameLine();
-                    ImGui.Text(setting.Title);
+                    ImGui.Text(LocalizationManager.Instance.Get(setting.Title));
                 }
 
                 if (!string.IsNullOrEmpty(setting.Description))
                 {
-                    ImGui.TextDisabled(setting.Description);
+                    ImGui.TextDisabled(LocalizationManager.Instance.Get(setting.Description));
                 }
 
                 setting.PostDraw?.Invoke();
@@ -361,7 +361,7 @@ public class PreferencesMenu
                 CFGHelpers.ResetCurrentToDefault();
             }
         }
-        UIHelper.Tooltip("Reverts all preferences to their default value.");
+        UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences to their default value."));
 
         // Add these to the user can revert these easily without reverting everything
         if (ImGui.BeginMenu(LocalizationManager.Instance.Get("Viewport")))
@@ -375,7 +375,7 @@ public class PreferencesMenu
                     PreferencesUtil.ResetViewportGeneralCFG();
                 }
             }
-            UIHelper.Tooltip("Reverts all preferences in the Viewport General section to their default value.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences in the Viewport General section to their default value."));
 
             if (ImGui.MenuItem(LocalizationManager.Instance.Get("Rendering")))
             {
@@ -386,7 +386,7 @@ public class PreferencesMenu
                     PreferencesUtil.ResetViewportRenderingCFG();
                 }
             }
-            UIHelper.Tooltip("Reverts all preferences in the Viewport Rendering section to their default value.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences in the Viewport Rendering section to their default value."));
 
             if (ImGui.MenuItem(LocalizationManager.Instance.Get("Model Rendering")))
             {
@@ -397,7 +397,7 @@ public class PreferencesMenu
                     PreferencesUtil.ResetViewportModelRenderingCFG();
                 }
             }
-            UIHelper.Tooltip("Reverts all preferences in the Viewport Model Rendering section to their default value.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences in the Viewport Model Rendering section to their default value."));
 
             if (ImGui.MenuItem(LocalizationManager.Instance.Get("Selection")))
             {
@@ -408,7 +408,7 @@ public class PreferencesMenu
                     PreferencesUtil.ResetViewportSelectionCFG();
                 }
             }
-            UIHelper.Tooltip("Reverts all preferences in the Viewport Selection section to their default value.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences in the Viewport Selection section to their default value."));
 
             if (ImGui.MenuItem(LocalizationManager.Instance.Get("Coloring")))
             {
@@ -419,7 +419,7 @@ public class PreferencesMenu
                     PreferencesUtil.ResetViewportColoringCFG();
                 }
             }
-            UIHelper.Tooltip("Reverts all preferences in the Viewport Coloring section to their default value.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences in the Viewport Coloring section to their default value."));
 
             if (ImGui.MenuItem(LocalizationManager.Instance.Get("Display Preset")))
             {
@@ -430,7 +430,7 @@ public class PreferencesMenu
                     PreferencesUtil.ResetViewportDisplayPresetCFG();
                 }
             }
-            UIHelper.Tooltip("Reverts all preferences in the Viewport Display Preset section to their default value.");
+            UIHelper.Tooltip(LocalizationManager.Instance.Get("Reverts all preferences in the Viewport Display Preset section to their default value."));
 
             ImGui.EndMenu();
         }
